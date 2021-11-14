@@ -16,10 +16,10 @@ console.log(ranomNamb(minNamber, maxNumber))  //случайное число в
 
 
 
-Math.max(1,5,15,11,-11) // максимальное число из перечисленных
-console.log(Math.random())
-console.log(Math.max.apply(null, gg)) //макс число из масива
-console.log(Math.min.apply(null, gg)) //мин число из масива
+// Math.max(1,5,15,11,-11) // максимальное число из перечисленных
+// console.log(Math.random())
+// console.log(Math.max.apply(null, gg)) //макс число из масива
+// console.log(Math.min.apply(null, gg)) //мин число из масива
 
 // gg[11] = 19;
 // console.log(gg)
@@ -44,10 +44,27 @@ b.length //- длина строки
 //  console.log(b.slice(7)) -показывает начиная со 7 знака
 //  =y world; 
 
-      //  Массивы( Arrays)
+       
+         Array; //  Массивы( Arrays)
     
-let arr = [5,2,"str1", true];
+let arr = [5,2,"str1", true]; // отсчет начинается с 0 ;
+// 0: 5
+// 1: 2
+// 2: "str1"
+// 3: true
+// length: 4
 arr[4] = 44 // добавил итем в масив 
 arr[1] = 3 // изменить третий элемент
-console.log(arr[1])
+// console.log(arr[2]) // показать эдемент под номером 2 - "str1" (отсчет нач с 0)
     
+let matrix =[  // массивы в масиве
+[2,12,4],
+[31,-14,7],
+[-3,95,0],
+[arr]
+];
+// console.log(matrix[2][0]) // вызываем 1е значение из 3 массива(нач с 0)
+
+arr.shift(); // Убераем елем в начале массива
+arr.push("Nadaaa") // Добовляем елем в конец (Имитация очереди)
+console.log(arr)
