@@ -5,12 +5,15 @@ let gg = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11];
 
 Math.random // случайное число от 0 до 1
 
-function ran(min, max){   //случайное число в диапозоне
+function ranomNamb(min, max){   //случайное число в диапозоне
     let rand = min + Math.random() * (max + 1 - min);
     return Math.floor(rand);
 }   
 
-console.log(ran(1,500))  //случайное число в диапозоне
+let minNamber = 1
+let maxNumber = 10101
+console.log(ranomNamb(minNamber, maxNumber))  //случайное число в диапозоне
+
 
 
 Math.max(1,5,15,11,-11) // максимальное число из перечисленных
