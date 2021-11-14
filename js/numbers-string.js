@@ -65,6 +65,13 @@ let matrix =[  // массивы в масиве
 ];
 // console.log(matrix[2][0]) // вызываем 1е значение из 3 массива(нач с 0)
 
+// (Имитация очереди)
 arr.shift(); // Убераем елем в начале массива
-arr.push("Nadaaa") // Добовляем елем в конец (Имитация очереди)
-console.log(arr)
+arr.unshift(-99) // Добовляет елем в начало
+arr.push("Nadaaa") // Добовляем елем в конец 
+arr.pop() // забирает последний елем
+// console.log(arr)
+
+let arr1 = [1,2,3];
+arr.concat(arr1) //склеиваем два масива
+// console.log(arr.concat(arr1))
