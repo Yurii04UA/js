@@ -1,4 +1,4 @@
-Number;
+        Number;
 5,15,11,3.15,-18;
 let a = 5;
 let gg = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11];
@@ -27,7 +27,7 @@ console.log(Math.min.apply(null, gg)) //мин число из масива
 
 // console.log(`How much? ${a}`)  - в одинарных скобках `` записуют если нужно добавить переменную в строку. Переменная записывается так ${a}
 
-String;
+        String;
 "Hello", "Hello world";
 let b = "Hello my world"
 
@@ -43,3 +43,11 @@ b.length //- длина строки
 
 //  console.log(b.slice(7)) -показывает начиная со 7 знака
 //  =y world; 
+
+      //  Массивы( Arrays)
+    
+let arr = [5,2,"str1", true];
+arr[4] = 44 // добавил итем в масив 
+arr[1] = 3 // изменить третий элемент
+console.log(arr[1])
+    
