@@ -4,6 +4,8 @@ let age = prompt ("How old are you?")
 let fullName = `User : ${firstName} ${lastName}`
 let userAge = `Your age : ${age}`
 
-console.log(fullName)
+
+// console.log("User :"+ firstName + " "+ lastName )
 
 console.log(userAge)
+console.log(fullName)

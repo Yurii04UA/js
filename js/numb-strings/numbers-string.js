@@ -35,7 +35,6 @@ let b = "Hello my world"
 
 b.length //- длина строки
 // console.log(b.length)
-
  b.slice //- показывает значение в диапозоне
 
 //  console.log(b.slice(0,3)) - показывает значения от 0 знака до 3 знака
