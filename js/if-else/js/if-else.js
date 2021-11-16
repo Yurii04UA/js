@@ -4,6 +4,13 @@
 // } else{
 //     console.log("No 5 > 4")
 // }
+///////////////////// Условный (Тернарный ) оператор  !!!!!!!!!!!!!!!!!!!!!!!!
+// let age = prompt("how your old?")
+// let ageDescription
+// ageDescription = age < 18 ? "small" : "an adult"
+
+// console.log("You are "+ ageDescription)
+//////////////////////////////////////////////////////////////////////////
 
 let age = prompt("How old are you?");
 let userAge = `Your age : ${age}`;
