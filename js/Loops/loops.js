@@ -77,7 +77,7 @@ let b = 30;
 
 
 ////////////////// for of -  для массивоов
-let arr = [1,2,3,4,5,6,-10];
+// let arr = [1,2,3,4,5,6,-10];
 
 // for( let arrInf of arr ){
 //     console.log(arrInf);
@@ -111,17 +111,44 @@ let arr = [1,2,3,4,5,6,-10];
 
 ////// search in array!!!!
 
-let people = [
-    {id: 1, name: "yurii1"},
-    {id: 2, name: "yurii2"},
-    {id: 3, name: "yurii3"},
-    {id: 4, name: "yurii4"}
-]
-people[4] = {id: 5, name: "yurii5"}
+// let people = [
+//     {id: 1, name: "yurii1"},
+//     {id: 2, name: "yurii2"},
+//     {id: 3, name: "yurii3"},
+//     {id: 4, name: "yurii4"}
+// ]
+// people[4] = {id: 5, name: "yurii5"}
 
-let as = people.find(function(elem){
+// let as = people.find(function(elem){
     
-    if(elem.id==2) return elem
-})
+//     if(elem.id==2) return elem
+// })
 
-console.log(as)
+// console.log(as)
+////////////////////////// map -- создает копирут массив с новыми параметрами
+// let arr = [1,2,3,4,5,6,-10];
+
+// let newArr = arr.map(function(el){
+//     return el*3
+// })
+
+// console.log(newArr)
+// console.log(arr)
+
+
+
+/////////////////////// практика
+// let arr = []
+// for(i =30; i >=1; i--){
+//     if (i%3 ==0){
+//         arr.push(i)
+//     }
+// }
+// console.log(arr)
+
+let arr = []
+
+for(let i= 0; i<10;i++){
+    arr.push(i*i)
+}
+console.log(arr)
