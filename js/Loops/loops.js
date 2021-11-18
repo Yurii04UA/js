@@ -79,6 +79,49 @@ let b = 30;
 ////////////////// for of -  для массивоов
 let arr = [1,2,3,4,5,6,-10];
 
-for( let arrInf of arr ){
-    console.log(arrInf);
-}
+// for( let arrInf of arr ){
+//     console.log(arrInf);
+// }
+
+////////////////// for in - для перебора обьектов  (Ключ : Значение "name": "Yurii")
+// let obj = {
+//     "name": "Yurii",
+//     "sureName":"Paraka",
+//     "age": 28,
+//     "weight": 86
+// }
+
+// for(let key in obj){
+//     console.log(`key : ${key} ; value : ${obj[key]} `)
+// }
+// //  console.log(key) - что бы вывести ключ and console.log(obj[key]) что бы вывести значение  
+
+/////////////// ForEach -позволяет выполнить переданную функцию один раз для каждого элемента в массиве в порядке возрастания индекса
+
+// arr.forEach(function(item,i,array){
+//     console.log(`elem : ${item} index : ${i} array : ${array}`)
+// });
+//         // elem : 1 index : 0 array : 1,2,3,4,5,6,-10
+//         // elem : 2 index : 1 array : 1,2,3,4,5,6,-10
+//         // elem : 3 index : 2 array : 1,2,3,4,5,6,-10
+//         // elem : 4 index : 3 array : 1,2,3,4,5,6,-10
+//         // elem : 5 index : 4 array : 1,2,3,4,5,6,-10
+//         // elem : 6 index : 5 array : 1,2,3,4,5,6,-10
+//         // elem : -10 index : 6 array : 1,2,3,4,5,6,-10
+
+////// search in array!!!!
+
+let people = [
+    {id: 1, name: "yurii1"},
+    {id: 2, name: "yurii2"},
+    {id: 3, name: "yurii3"},
+    {id: 4, name: "yurii4"}
+]
+people[4] = {id: 5, name: "yurii5"}
+
+let as = people.find(function(elem){
+    
+    if(elem.id==2) return elem
+})
+
+console.log(as)
