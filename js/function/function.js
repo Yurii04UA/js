@@ -23,43 +23,23 @@ arr = [11,23,45,64,546,1,-11]
 /////////////////////////////////
 
 
-/* TypesData:
-String;
-Number
-bigN
-boolean (true, false)
-undefinde
-null
-obj
-array
-
-Array:
-arr= [10,"name",true, obj, arr2[]]
-
-Obj;
-
-obj={ key, value}
-obj2 = { name: "Yurii", age:18}
-
-
-Switch
-if else
-
-let a =1;
-if (a < 0){
-    console.log("no")
-} else if(a == 0 ){
-    console.log("Yes a= 0")
-}else{
-    console.log("a>0")
+function randomNumber(){
+   let number = Math.floor(Math.random()*100)
+   for(let count=1; count<=10; count++){
+       let userNumb = prompt(`Guess the number from 1 to 100; try : ${count}`)
+       if(userNumb==null) {
+            return alert("don`t you want to test your luck")
+        }else if(userNumb==number){
+            return alert(`Yes you guessed it number : ${number}; number of attempts ${count}`)
+        }else if(userNumb<number){
+            alert(`No the hidden number is less ; try number: ${count}`)
+        }else if(userNumb>number){
+            alert(`No the hidden number is greater ; try number: ${count}`)
+        } else {
+            alert("ne chislo, debil")
+        }
+   }
+    alert(`You did not guess the number(hidden number : ${number}),try again`)
 }
-let name = "Yurii"
+randomNumber();
 
-switch(name){
-    case "Stas" : console.log("Yes your name Stas");
-    break
-    case "Yurii" : console.log("Yes your name Yurii");
-    break
-}
-
-*/
