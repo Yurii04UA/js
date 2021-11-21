@@ -58,43 +58,35 @@ arr = [11,23,45,64,546,1,-11]
 
 // itsNan()
 
-/*
-types date:
-1.number
-2.string
-3.bilgn
-4.boolean (true, false)
-5.null - 
-6.undefinde-
-7. obj
-obj={
-    key,value
-    name:"Yurii", weight: 77
+
+
+// function isNumberOdd(number){
+//     if (number%2===0){
+//         return console.log(false)
+//     }else{
+//         return console.log(true)
+//     }
+// }
+
+// function isNumberOdd(number){
+//     return number%2 !==0
+// }
+
+// console.log(isNumberOdd(11))
+
+// isNumberOdd(11)
+// isNumberOdd(8)
+// isNumberOdd(0)
+// isNumberOdd(23)
+
+// Factorial
+
+let factorial = function(number){
+    let result =1
+    for(i=1;i<=number;i++){
+        result= result*i;
+    }
+    return result
 }
 
-symbal 
-
-*/
-
-// let ogb={
-
-// }
-// let i = 0
-// while(i <=10){
-//     console.log(i)
-//     i++
-// }
-
-// for(let x=0;x<=10;x+=2){
-//     console.log(x)
-// }
-
-// for(let arr2 of arr){
-//     console.log(arr2)
-// }
-
-
-
-
-let hh =Date()
-console.log(Date())
+console.log(factorial(4))
