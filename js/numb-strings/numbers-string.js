@@ -107,3 +107,20 @@ let m = "vaza, peta, yura, oleg"
 m.split() //метод перевода строк в массив(в данном случае в 1 елем)
 m.split(", ") //метод перевода строк в массив, ОБЯЗАТЕЛЬНО указать разделитель в данном случае ", и пробел"
 // console.log(m.split(", "))
+
+
+
+//////////////////////////////////
+// if(isNaN(kk)) - проверяем является ли введеный данный числом
+// function itsNan(){
+//     let kk = prompt("number")
+//     if(kk==null){
+//         return console.log("cancel")
+//     }else if(isNaN(kk)){
+//         console.log("its not number")
+//     }else if(kk>= 0 ){
+//         console.log("Number")
+//     }
+// }
+
+// itsNan(
