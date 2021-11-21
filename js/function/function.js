@@ -58,39 +58,43 @@ arr = [11,23,45,64,546,1,-11]
 
 // itsNan()
 
-function randomNumber (){
-    let number = Math.floor(Math.random()*100)
-    for (let i=1;i<=10;i++){
-        let userNumb = prompt(`Your number from 1 to 100, try number : ${i}` )
-        if (userNumb===null){
-            return alert("Cancel")
-        }else if(isNaN(userNumb)){
-            alert(`it is not number, try number : ${i}`)
-        } else if(userNumb==number){
-            return alert(`Great, you win!! it is number : ${number}, try number : ${i}`)
-        }else if (userNumb<number){
-            alert(`No, number is less, try number : ${i}`)
-        }else if (userNumb>number){
-            alert(`No, number is more, try number : ${i}`)
-        }
-    }
-    return alert(`You debil`)
+/*
+types date:
+1.number
+2.string
+3.bilgn
+4.boolean (true, false)
+5.null - 
+6.undefinde-
+7. obj
+obj={
+    key,value
+    name:"Yurii", weight: 77
 }
 
+symbal 
+
+*/
+
+// let ogb={
+
+// }
+// let i = 0
+// while(i <=10){
+//     console.log(i)
+//     i++
+// }
+
+// for(let x=0;x<=10;x+=2){
+//     console.log(x)
+// }
+
+// for(let arr2 of arr){
+//     console.log(arr2)
+// }
 
 
-randomNumber()
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+let hh =Date()
+console.log(Date())
