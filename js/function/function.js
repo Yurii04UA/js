@@ -109,9 +109,29 @@ console.log(factorial(4))
 // function User(name, age){
 //     this.name = name;
 //     this.age = age;
+//     this.myInfo = function(){
+//         console.log("My name is "+this.name+" i`m "+this.age+" years old")
+//     }
 // }
 
+// let u1 = new User("Olfa", 15)
+// console.log(u1.myInfo())
+/////////////////////////////////////////////////// Запись конструктора по классу!!!!!! лучше записоваьб по классам!!
 
+// class User{
+//     constructor(name,age){
+//         this.name = name;
+//         this.age = age;
+//     }
+//     myInfo(){
+//         console.log("My name is "+this.name+" i`m "+this.age+" years old")
+//     }
+// }
+
+// let u2 = new User("Popo",22)
+// console.log(u2)
+// console.log(u2.myInfo())
+/////////////////////////////////////////////////////
 // let arrg=[];
 // for(i=0;i<5;i++){
 //     let userName= prompt("name")
@@ -119,7 +139,18 @@ console.log(factorial(4))
 //     arrg.push(new User(userName,userAge)) 
 // }
 // console.log(arrg)
+//////////////
+// arrg[arrg.length]=new User("Yi",11)
+// console.log(arrg)
+
+// arrg[arrg.length]=new User("Yaa",112)
+// console.log(arrg)
+// arrg[arrg.length]=new User("Ya2a",2)
+// console.log(arrg)
+// arrg.push(new User("Jj",18))
+// console.log(arrg)
 
 ////////////////////////////////////
+
 
 
