@@ -105,6 +105,21 @@ console.log(factorial(4))
 // console.log(change("Hello world !"))
 // console.log(change("Hello world ! asd asf afsasf asf asfasf a"))
 // console.log(change("Hello"))
+///////////////////////////////////////////// Конструктор
+// function User(name, age){
+//     this.name = name;
+//     this.age = age;
+// }
 
+
+// let arrg=[];
+// for(i=0;i<5;i++){
+//     let userName= prompt("name")
+//     let userAge= prompt("age")
+//     arrg.push(new User(userName,userAge)) 
+// }
+// console.log(arrg)
+
+////////////////////////////////////
 
 
