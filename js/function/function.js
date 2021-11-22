@@ -90,3 +90,18 @@ let factorial = function(number){
 }
 
 console.log(factorial(4))
+////////////////////////////////////////////////////////// замена символа в строке
+// let text = "You something any lf asd asff sad"
+// let newText = text.replace(/ /g,`_`)
+// console.log(newText)
+
+
+// function change(text){
+//   let newStr= text.replace(/ /gi,`_`)
+//     return newStr
+// }
+
+
+// console.log(change("Hello world !"))
+// console.log(change("Hello world ! asd asf afsasf asf asfasf a"))
+// console.log(change("Hello"))
