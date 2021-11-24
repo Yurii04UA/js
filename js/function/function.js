@@ -45,6 +45,7 @@ arr = [11,23,45,64,546,1,-11]
 
 //////////////////////////////////
 // if(isNaN(kk)) - проверяем является ли введеный данный числом
+
 // function itsNan(){
 //     let kk = prompt("number")
 //     if(kk==null){
@@ -89,7 +90,7 @@ let factorial = function(number){
     return result
 }
 
-console.log(factorial(4))
+console.log(factorial(0))
 ////////////////////////////////////////////////////////// замена символа в строке
 // let text = "You something any lf asd asff sad"
 // let newText = text.replace(/ /g,`_`)
@@ -101,10 +102,11 @@ console.log(factorial(4))
 //     return newStr
 // }
 
-
 // console.log(change("Hello world !"))
 // console.log(change("Hello world ! asd asf afsasf asf asfasf a"))
 // console.log(change("Hello"))
+
+
 ///////////////////////////////////////////// Конструктор
 // function User(name, age){
 //     this.name = name;
