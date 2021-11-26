@@ -54,15 +54,14 @@ let cars = ["Toyota","Opel","BMW","Pegout","KIA"]
 // console.log(cars)
 
 let germanCars = cars.slice(1,3)
-// console.log(germanCars)
-// console.log(cars)
+// console.log(germanCars) // (2) ['Opel', 'BMW']
+// console.log(cars) // (5) ['Toyota', 'Opel', 'BMW', 'Pegout', 'KIA']
 
 let moreCars = cars.splice(1,2)
-// console.log(moreCars)
-// console.log(cars)
+// console.log(moreCars) // (2) ['Opel', 'BMW']
+// console.log(cars) // (3) ['Toyota', 'Pegout', 'KIA']
 
-
-
+//////////
 arr.includes() //метода для проверки есть ли такой елем в массиве
 arr.includes(3) //вернет True так как 3 есть в массиве
 arr.includes(-3) //вернет False так как -3 нет в массиве
@@ -79,16 +78,26 @@ m.split(", ") //метод перевода строк в массив, ОБЯЗ
 
 //////////////////////////////////////// Повтор
 // Added item
-let names = ["Yurii","Yurri1","Yurri2","Yurri3","Yurri4"];
-console.log(names);
+let names = ["Yurii","Yurii1","Yurii2","Yurii3","Yurii4"];
+// console.log(names);
 names[5]= "Yurii5"; // added new item in array(one of the methods)
-console.log(names);
+// console.log(names);
 names[names.length]="Yurii6"; // added new item in array(one of the methods)
-console.log(names);
+// console.log(names);
 names.push("Yurii7") // added new item to the end of the array(one of the methods)
-console.log(names);
+// console.log(names);
 
 // Delete item
 
 names.pop(); // delete item from end of  array
-console.log(names);
+// console.log(names);
+
+///////// method indexOf("yuryy")
+names.indexOf("Yurii")
+// console.log(names.indexOf("Yurii2")) // = 2
+let x = names.indexOf("Yurii3");
+// console.log(x); // = 3
+///////////
+let toyoya = ["camry",2010,"sedan","red"];
+let isSedan = toyoya.indexOf("sedan") === -1 ? console.log("Type is not sedan") : console.log("Type is sedan")
+////////////////
