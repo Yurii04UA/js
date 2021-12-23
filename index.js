@@ -65,8 +65,3 @@ while
 // }
 // b()
 //  
-
-`use script`
-
-let b
-console.log(b)
