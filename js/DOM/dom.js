@@ -23,8 +23,8 @@
 
 // console.log(a[2].innerHTML)
 
-let li3 = document.querySelector("#thirdElem");
+// let li3 = document.querySelector("#thirdElem");
 
-li3.style.color = "pink";
-li3.style.color = "pink";
-li3.style.fontSize = "44px";
+// li3.style.color = "pink";
+// li3.style.color = "pink";
+// li3.style.fontSize = "44px";
