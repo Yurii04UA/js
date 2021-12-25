@@ -19,6 +19,12 @@
 // let x = document.querySelector(".firstThreeEl").innerHTML;
 // console.log(x);
 
-let a = document.querySelectorAll(".firstThreeEl")
+// let a = document.querySelectorAll(".firstThreeEl")
 
-console.log(a[2].innerHTML)
+// console.log(a[2].innerHTML)
+
+let li3 = document.querySelector("#thirdElem");
+
+li3.style.color = "pink";
+li3.style.color = "pink";
+li3.style.fontSize = "44px";
