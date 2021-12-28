@@ -146,9 +146,24 @@ let b = 30;
 // }
 // console.log(arr)
 
-let arr = []
+// let arr = []
 
-for(let i= 0; i<10;i++){
-    arr.push(i*i)
-}
-console.log(arr)
+// for(let i= 0; i<10;i++){
+//     arr.push(i*i)
+// }
+// console.log(arr)
+
+
+///////////////////////////////////////////////////////////////
+// outer: - при отмене найдет такую метку и перейдет к ней
+
+// outer: for(let i = 0;i<3;i++){
+//     for(let j = 0; j < 3; j++){
+//         let input = prompt(`Numbers:(${i},${j})`)
+
+//         if(!input) break outer
+//     }
+    
+// }
+// alert("Okey")
+
