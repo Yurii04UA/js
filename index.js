@@ -67,27 +67,44 @@ while
 //  
 let btn = document.querySelector(".fuck")
 let startTime = new Date().getTime()
+let square = document.querySelector(".square");
 let makeSquareVisible = function(){
     square.style.display = "block"
     startTime = new Date().getTime()
+    square.style.top = (Math.random()*500 )+"px"
+    square.style.left = (Math.random()*1000 )+"px"
+    square.style.width = (Math.random()*300+50)+"px"
+    square.style.height = (Math.random()*300+50)+"px"
+        if (Math.random() < 0.3){
+            square.style.borderRadius = "50%"
+            square.style.background = "green    "
+        }else if ((Math.random() >= 0.3) && (Math.random() <= 0.7)){
+            square.style.borderRadius = "0%"
+            square.style.background = "green"
+        }else {
+            square.style.width = "0px"
+            square.style.height = "0px"
+            square.style.borderLeft = "50px solid transparent"
+            square.style.borderRight = "50px solid transparent"
+            square.style.borderBottom = "100px solid green"
+            square.style.background = "transparent"
+        }
 }
 
-
-let square = document.querySelector(".square");
     square.addEventListener("click", function () {
     square.style.display = "none"
-    square.style.top = (Math.random()*500 )+"px"
-    square.style.left = (Math.random()*800 )+"px"
+    
+
     let endTime = new Date().getTime()
     let finishTime = (endTime - startTime)/1000
     let reactionTime = document.querySelector(".reactionTime").innerHTML = finishTime + " seconds";
     setTimeout(makeSquareVisible, Math.random()*3000)
     
 })
+
 btn.addEventListener("click", function () {
-    makeSquareVisible()
+    setTimeout(makeSquareVisible, Math.random()*3000)
     btn.style.display = "none"
 })  
 
 
-console.log(Math.random()*3000+" sec")
