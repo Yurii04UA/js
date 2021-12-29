@@ -30,18 +30,32 @@
 // link.setAttribute("href","https://www.youtube.com")
 // //////////////////////////////
 // EVENT
-let h1 = document.querySelector(".h1");
-h1.addEventListener("click",function(){
-    h1.style.color = "pink"
-})
-h1.addEventListener("click",function(){
-    h1.style.background = "black"
-})
+// let h1 = document.querySelector(".h1");
+// h1.addEventListener("click",function(){
+//     h1.style.color = "pink"
+// })
+// h1.addEventListener("click",function(){
+//     h1.style.background = "black"
+// })
 
-let liElem = document.getElementsByTagName("li");
-for(i=0;i<liElem.length;i++){
-    liElem[i].addEventListener("click",function(){
-        this.style.color = "green"
-    })
-}
+// let liElem = document.getElementsByTagName("li");
+// for(i=0;i<liElem.length;i++){
+//     liElem[i].addEventListener("click",function(){
+//         this.style.color = "green"
+//     })
+// }
 
+
+// let btn = document.querySelector(".fuck");
+// let body = document.querySelector("body");
+// isBackgroundColor = false;
+// btn.addEventListener("click", function(){
+//     if (isBackgroundColor===false){
+//         body.style.background = "blue"
+//         isBackgroundColor =true
+//     }else{
+//         body.style.background = "white"
+//         isBackgroundColor =false
+//     }
+       
+// })

@@ -65,3 +65,17 @@ while
 // }
 // b()
 //  
+
+let startTime = new Date().getTime()
+let finishTime = document.querySelector(".finishTime");
+
+let square = document.querySelector(".square");
+square.addEventListener("click", function () {
+    square.style.display = "none"
+    let endTime = new Date().getTime()
+    finishTime.innerHTML = (endTime - startTime)/1000    + " seconds"
+})
+
+
+
+

@@ -1,6 +1,7 @@
 body{
     padding: 0;
     margin: 0;
+   
 }
 
 .container{
@@ -12,4 +13,14 @@ body{
 .currenty{
     font-size: 28px;
     color: red;
+}
+
+.color{
+    background-color: blue;
+}
+
+.square{
+    width: 150px;
+    height: 150px;
+    background-color: green;
 }
