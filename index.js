@@ -65,17 +65,29 @@ while
 // }
 // b()
 //  
-
+let btn = document.querySelector(".fuck")
 let startTime = new Date().getTime()
-let finishTime = document.querySelector(".finishTime");
+let makeSquareVisible = function(){
+    square.style.display = "block"
+    startTime = new Date().getTime()
+}
+
 
 let square = document.querySelector(".square");
-square.addEventListener("click", function () {
+    square.addEventListener("click", function () {
     square.style.display = "none"
+    square.style.top = (Math.random()*500 )+"px"
+    square.style.left = (Math.random()*800 )+"px"
     let endTime = new Date().getTime()
-    finishTime.innerHTML = (endTime - startTime)/1000    + " seconds"
+    let finishTime = (endTime - startTime)/1000
+    let reactionTime = document.querySelector(".reactionTime").innerHTML = finishTime + " seconds";
+    setTimeout(makeSquareVisible, Math.random()*3000)
+    
 })
+btn.addEventListener("click", function () {
+    makeSquareVisible()
+    btn.style.display = "none"
+})  
 
 
-
-
+console.log(Math.random()*3000+" sec")
