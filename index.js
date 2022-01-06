@@ -68,25 +68,31 @@ while
 let btn = document.querySelector(".fuck")
 let startTime = new Date().getTime()
 let square = document.querySelector(".square");
+function generateRandomColor(){
+let randomColor = "#"+(Math.floor(Math.random()*16777215).toString(16));
+    return randomColor;
+}
 let makeSquareVisible = function(){
     square.style.display = "block"
     startTime = new Date().getTime()
-    square.style.top = (Math.random()*500 )+"px"
-    square.style.left = (Math.random()*1000 )+"px"
+    square.style.top = (Math.random()*400 )+"px"
+    square.style.left = (Math.random()*700 )+"px"
     square.style.width = (Math.random()*300+50)+"px"
     square.style.height = (Math.random()*300+50)+"px"
         if (Math.random() < 0.3){
             square.style.borderRadius = "50%"
-            square.style.background = "green    "
+            square.style.background = generateRandomColor()
+            square.style.borderBottom = "0"
         }else if ((Math.random() >= 0.3) && (Math.random() <= 0.7)){
             square.style.borderRadius = "0%"
-            square.style.background = "green"
+            square.style.background = generateRandomColor()
+            square.style.borderBottom = "0"
         }else {
             square.style.width = "0px"
             square.style.height = "0px"
             square.style.borderLeft = "50px solid transparent"
             square.style.borderRight = "50px solid transparent"
-            square.style.borderBottom = "100px solid green"
+            square.style.borderBottom = "100px solid "+ generateRandomColor()
             square.style.background = "transparent"
         }
 }
@@ -101,10 +107,11 @@ let makeSquareVisible = function(){
     setTimeout(makeSquareVisible, Math.random()*3000)
     
 })
-
 btn.addEventListener("click", function () {
     setTimeout(makeSquareVisible, Math.random()*3000)
     btn.style.display = "none"
-})  
+})
+
+console.log("#"+(Math.floor(Math.random()*16777215).toString(16)))
 
 
