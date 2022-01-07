@@ -4,12 +4,20 @@
 // } else{
 //     console.log("No 5 > 4")
 // }
-///////////////////// Условный (Тернарный ) оператор  !!!!!!!!!!!!!!!!!!!!!!!!
+//////////////////////////// Условный (Тернарный ) оператор  !!!!!!!!!!!!!!!!!!!!!!!!
 // let age = prompt("how your old?")
 // let ageDescription
 // ageDescription = age < 18 ? "small" : "an adult"
 
 // console.log("You are "+ ageDescription)
+
+// const userAge = prompt("How old are you?");
+// const message = userAge >= 18 ? "You can buy the alcohol." : "You can not buy the alcohol,you are too young.";
+
+// console.log(message);
+// alert(message);
+// // userAge >= 18 ? (alert("You can buy the alcohol") , console.log("You can buy the alcohol")) : (alert("You can not buy the alcohol,you are too young") , console.log("You can not buy the alcohol,you are too young"));
+
 //////////////////////////////////////////////////////////////////////////
 
 let age = prompt("How old are you?");
