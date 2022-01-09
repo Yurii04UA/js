@@ -162,11 +162,57 @@ let factorial = function(number){
 
 
 // printText();
-function colorizer (item , color){
-     console.log(`name item : ${item}, color the item : ${color}`);
-     const colorizerItem = `The ${item} is ${color}`
-     console.log(colorizerItem)
-};
+// function colorizer (item , color){
+//      console.log(`name item : ${item}, color the item : ${color}`);
+//      const colorizerItem = `The ${item} is ${color}`
+//      console.log(colorizerItem)
+// };
 
-colorizer(`desk`, `pink`)
+// colorizer(`desk`, `pink`)
 
+// ////// fuction: Declaration and Expression
+// function sayHello (){  ////////  Declaration function (Может вызываться до ее определения)
+//     alert("Hello")
+// };
+
+
+// let sayHello1 = function(){  //////// Expression function (может вызываться только когда загрузится(дойдет очередь))
+//     alert("Hello")           //// эта функция часть выражения
+// }
+
+// function getAge1 (birthYear, yearNow){  <--- /////////// declaration function
+//     // const age = yearNow - birthYear
+//     // return age
+//     return yearNow - birthYear
+// };
+
+// const myAge = getAge1(1992,2022);
+// console.log(myAge);
+// console.log(getAge1(1996,2022));
+
+// let getAge2 = function(birthYear,yearNow){  <--- //// Expression function (функция часть выражения)
+//     return yearNow - birthYear
+// };
+// const myAge = getAge2(2000,2022);
+// console.log(myAge);
+// console.log(getAge2(2000,2022));
+//////////////////////////////////////////
+// function ask(question,yes,no){
+//     if(confirm(question)){
+//         yes()
+//     } else {
+//         no()
+//     }
+// };
+
+// function showOk (){
+//     alert("Okey")
+// };
+
+// function showCancel(){
+//     alert("You cancel")
+// }
+
+// ask("You debil?", showOk, showCancel)
+
+//////////////////// Arrow function
