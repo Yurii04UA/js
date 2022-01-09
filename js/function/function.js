@@ -90,7 +90,7 @@ let factorial = function(number){
     return result
 }
 
-console.log(factorial(0))
+// console.log(factorial(0))
 ////////////////////////////////////////////////////////// замена символа в строке
 // let text = "You something any lf asd asff sad"
 // let newText = text.replace(/ /g,`_`)
@@ -155,4 +155,18 @@ console.log(factorial(0))
 ////////////////////////////////////
 
 
+// New education////////////////
+// function printText (){
+//     console.log("Hello to everyone!")
+// };
+
+
+// printText();
+function colorizer (item , color){
+     console.log(`name item : ${item}, color the item : ${color}`);
+     const colorizerItem = `The ${item} is ${color}`
+     console.log(colorizerItem)
+};
+
+colorizer(`desk`, `pink`)
 
