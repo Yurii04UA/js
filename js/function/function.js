@@ -216,3 +216,140 @@ let factorial = function(number){
 // ask("You debil?", showOk, showCancel)
 
 //////////////////// Arrow function
+// let getAge2 = function(birthYear,yearNow){   ////<--- Expression function (функция часть выражения) обязательно указывать явное возвращенное значение(return)
+//         return yearNow - birthYear
+//     };
+//     const myAge2 = getAge2(1992,2022);
+//     console.log(myAge2);
+
+
+// const getAgeArray = (birthYear,yearNow)=>   ///<--- При использовании стрелочной функции не нужно указывать {} и return(значение возвращается автоматически)
+//     yearNow-birthYear;
+// // console.log(yearNow - birthYear) ;
+// const myAgeArray = getAgeArray(2001,2022)
+// // getAgeArray(2020,2022);
+// console.log(getAgeArray(2000,2020))
+// console.log(myAgeArray)
+
+// let canBuyAlcohol = (birthYear,yearNow) => {
+//     const age = yearNow - birthYear;
+//     if (age>21){
+//         return console.log("Yes,you can buy the alcohol"), 
+//         console.log(age);
+//     }else{
+//         return console.log("No,you can not buy the alcohol, you is too young"),
+//         console.log(age);
+//     }
+// };
+
+// canBuyAlcohol(1992,2022);
+// canBuyAlcohol(2010,2022);
+
+// let canBuyAlcohol = (birthYear,yearNow) =>{
+//     const age = yearNow - birthYear;
+//     const isPersenOlderThan21 = age >21 ? "Yes,you can buy the ALCOHOL." : "No,you can not buy the ALCOHOL,you is too young.";
+//     return isPersenOlderThan21
+// };
+
+// console.log(canBuyAlcohol(2014,2022));
+
+/////////////////////////////// functions in the function
+// function colorMixed (colorOne,colorTwo){
+//     const newColor = `${colorOne} with ${colorTwo}`;
+//     return newColor;
+// }
+
+
+// function colorizer (item,color1,color2){
+//     const color = colorMixed(color1,color2)
+//     const colorizerItem = `The ${item} is ${color}.`;
+//     return colorizerItem;
+// };
+
+// const colorCar = colorizer("Ford", "blue", "white");
+// console.log(colorCar);
+
+// console.log(colorizer("house", "black", "orange"));
+
+/////////////////////////////////// 
+const getAverageQuarter = (firstMonth,secondMonth,thirdMonth) => 
+    Math.round((firstMonth + secondMonth + thirdMonth) / 3);
+    // first quarter
+    const averSalesDeptOneFirstQuarter = getAverageQuarter(35467,29842,38501);
+    const averSalesDeptTwoFirstQuarter = getAverageQuarter(70533,50121,33899);
+
+    console.log(averSalesDeptOneFirstQuarter,averSalesDeptTwoFirstQuarter);
+       
+    // second quarter
+    const averSalesDeptOneSecondQuarter = getAverageQuarter(50301,21984,19207);
+    const averSalesDeptTwoSecondQuarter = getAverageQuarter(72381,41562,29465);
+
+    console.log(averSalesDeptOneSecondQuarter,averSalesDeptTwoSecondQuarter);
+    
+
+
+    const averSalesDeptOneFirstQuarterFix = getAverageQuarter(115467,9842,38501); /// искуственно уменьшил разницу что бы увидеть другой код
+
+
+function printBonus(averSalesDept1,averSalesDept2){
+    if (averSalesDept1 < averSalesDept2){
+        const difference = averSalesDept2 - averSalesDept1 ;
+        const averSalesMoreOn = Math.round((difference / averSalesDept2)*100);
+        let results
+        if(averSalesMoreOn>30){
+            console.log( `Department two you have a bonus of ${averSalesMoreOn} % this quarter.`),
+            console.log(averSalesMoreOn);    
+        }else{
+            console.log( `Department two you have no bonus this quarter`),
+            console.log(averSalesMoreOn); 
+        }
+        
+
+    }else if (averSalesDept1 > averSalesDept2){
+        const difference = averSalesDept1 - averSalesDept2 ;
+        const averSalesMoreOn = Math.round((difference / averSalesDept1)*100);
+        if(averSalesMoreOn>30){
+            console.log(`Department one you have a bonus of ${averSalesMoreOn} % this quarter.` ),
+            console.log(averSalesMoreOn);
+        }else{
+            console.log(`Department one you have no bonus this quarter`),
+            console.log(averSalesMoreOn);
+        }
+    } else{
+        console.log("Great, you have a draw")
+    }
+}
+//// убрали if statmane добавив еще одно сравнение в первый ИФ
+function printBonus1(averSalesDept1,averSalesDept2){
+    if (averSalesDept1 < averSalesDept2 && averSalesDept2 > (1.3 *averSalesDept1)){
+        const difference = averSalesDept2 - averSalesDept1 ;
+        const averSalesMoreOn = Math.round((difference / averSalesDept2)*100);
+        
+            console.log( `Department two you have a bonus of ${averSalesMoreOn} % this quarter.`),
+            console.log(averSalesMoreOn);    
+        
+        
+
+    }else if (averSalesDept1 > averSalesDept2 && averSalesDept1> (1.3 * averSalesDept2)){
+        const difference = averSalesDept1 - averSalesDept2 ;
+        const averSalesMoreOn = Math.round((difference / averSalesDept1)*100);
+        
+            console.log(`Department one you have a bonus of ${averSalesMoreOn} % this quarter.` ),
+            console.log(averSalesMoreOn);
+       
+    } else{
+        console.log("No bonus this quarter")
+    }
+}
+
+
+
+
+const bonusFirstQuarter = printBonus(averSalesDeptOneFirstQuarter,averSalesDeptTwoFirstQuarter);
+const bonusTwoQuarter = printBonus(averSalesDeptOneSecondQuarter,averSalesDeptTwoSecondQuarter);
+
+const bonusFirstQuarterFix = printBonus(averSalesDeptOneFirstQuarterFix,averSalesDeptTwoFirstQuarter);
+
+const bonusFirstQuarter1 = printBonus1(averSalesDeptOneFirstQuarter,averSalesDeptTwoFirstQuarter);
+const bonusTwoQuarter1 = printBonus1(averSalesDeptOneSecondQuarter,averSalesDeptTwoSecondQuarter);
+
