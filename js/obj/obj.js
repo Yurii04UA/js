@@ -126,19 +126,26 @@
     
 // }
  ////// ------------------- вывод свойтв через ТОЧКУ или КВАДРАТНЫЕ СКОБКИ
-let yuriiObject = {
-    name: "Yurii",
-    lastName: "Paraka",
-    age: 29,
-    job: "no",
-    familyMembers: ["Evheniay","Kosmos","Yurii"]
-};
+// let yuriiObject = {
+//     name: "Yurii",
+//     lastName: "Paraka",
+//     birthYear: 1992,
+//     job: "no",
+//     familyMembers: ["Evheniay","Kosmos","Yurii"],
+//     hasDriverLicense: true,
+//     // calcAge: function (birthYear){
+//     //     return 2022- this.birthYear
+//     // }
+//     calcAge: function (){
+//         this.age = 2022- this.birthYear
+//     }
+// };
 
-console.log(yuriiObject.familyMembers);
-console.log(yuriiObject['familyMembers']);
+// console.log(yuriiObject.familyMembers);
+// console.log(yuriiObject['familyMembers']);
 
-const baseName = "Name";
-console.log(yuriiObject['last'+ baseName]); // при записи через скобки можно внутрь помещать другие выражения
+// const baseName = "Name";
+// console.log(yuriiObject['last'+ baseName]); // при записи через скобки можно внутрь помещать другие выражения
 
 // const userInput = prompt("What do you want to know about me? Choose between name, lastName, age, job, familyMembers");
 // console.log(userInput);
@@ -161,11 +168,48 @@ console.log(yuriiObject['last'+ baseName]); // при записи через с
 
 //////////////////////////////// <--- Create new properties
 
-yuriiObject.lacation = "Dnipro";
-yuriiObject['Email'] = "uyriparaka@gmail.com";
-console.log(yuriiObject);
+// yuriiObject.lacation = "Dnipro";
+// yuriiObject['Email'] = "uyriparaka@gmail.com";
+// console.log(yuriiObject);
 
 ////// Challenge
 // Yurii has 3 family members adn the first one is Evheniay;
 
-console.log(yuriiObject.name + ' has '+ yuriiObject.familyMembers.length + ' family members and the first one is ' + yuriiObject.familyMembers[0])
+// console.log(yuriiObject.name + ' has '+ yuriiObject.familyMembers.length + ' family members and the first one is ' + yuriiObject.familyMembers[0])
+
+
+
+/////////// function if object
+
+// console.log(yuriiObject.calcAge());
+// console.log(yuriiObject['calcAge']());
+// console.log(yuriiObject.age);
+
+/////////////// Chalange
+let yuriiObject = {
+    name: "Yurii",
+    lastName: "Paraka",
+    birthYear: 1992,
+    job: "no working",
+    familyMembers: ["Evheniay","Kosmos","Yurii"],
+    hasDriverLicense: true,
+    calcAge: function (birthYear){
+        return 2022- this.birthYear
+    },
+    getSummary: function(){
+        let hasDriverLicense1
+        if(this.hasDriverLicense){
+            hasDriverLicense1 = "he has a driver license"
+            
+        }else{
+            hasDriverLicense1 = "he has a not driver license"
+        }
+        return  `${this.name} is a ${this.calcAge()}-year old,${this.job} and ${hasDriverLicense1}`
+        
+    }
+};
+
+
+yuriiObject.calcAge
+console.log(yuriiObject.getSummary())
+console.log(yuriiObject)
