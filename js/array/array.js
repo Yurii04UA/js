@@ -163,11 +163,11 @@ const calculateTips = (bill) => {
       return tipsT.push(tips);  // пушу в пустой масив с чаевыми результат функии
       // return tips;  for two variant --> tips
    };
-const tips = [calculateTips(bills[0]), calculateTips(bills[1]),calculateTips(bills[2])]; ///самый простой вариант
-console.log(tips)
+// const tips = [calculateTips(bills[0]), calculateTips(bills[1]),calculateTips(bills[2])]; ///самый простой вариант
+// console.log(tips)
 
-const totalBill = (tips[0]+bills[0],tips[1]+bills[1],tips[2]+bills[2] );
-console.log(totalBill)
+// const totalBill = (tips[0]+bills[0],tips[1]+bills[1],tips[2]+bills[2] );
+// console.log(totalBill)
 
 
 calculateTips(11);
@@ -185,3 +185,6 @@ summ(bills[2], tipsT[2])
 
 console.log(sumBillAndTips)
 
+
+
+console.log(bills,tipsT, sumBillAndTips)
