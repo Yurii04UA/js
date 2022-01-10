@@ -272,84 +272,84 @@ let factorial = function(number){
 // console.log(colorizer("house", "black", "orange"));
 
 /////////////////////////////////// 
-const getAverageQuarter = (firstMonth,secondMonth,thirdMonth) => 
-    Math.round((firstMonth + secondMonth + thirdMonth) / 3);
-    // first quarter
-    const averSalesDeptOneFirstQuarter = getAverageQuarter(35467,29842,38501);
-    const averSalesDeptTwoFirstQuarter = getAverageQuarter(70533,50121,33899);
+// const getAverageQuarter = (firstMonth,secondMonth,thirdMonth) => 
+//     Math.round((firstMonth + secondMonth + thirdMonth) / 3);
+//     // first quarter
+//     const averSalesDeptOneFirstQuarter = getAverageQuarter(35467,29842,38501);
+//     const averSalesDeptTwoFirstQuarter = getAverageQuarter(70533,50121,33899);
 
-    console.log(averSalesDeptOneFirstQuarter,averSalesDeptTwoFirstQuarter);
+//     console.log(averSalesDeptOneFirstQuarter,averSalesDeptTwoFirstQuarter);
        
-    // second quarter
-    const averSalesDeptOneSecondQuarter = getAverageQuarter(50301,21984,19207);
-    const averSalesDeptTwoSecondQuarter = getAverageQuarter(72381,41562,29465);
+//     // second quarter
+//     const averSalesDeptOneSecondQuarter = getAverageQuarter(50301,21984,19207);
+//     const averSalesDeptTwoSecondQuarter = getAverageQuarter(72381,41562,29465);
 
-    console.log(averSalesDeptOneSecondQuarter,averSalesDeptTwoSecondQuarter);
+//     console.log(averSalesDeptOneSecondQuarter,averSalesDeptTwoSecondQuarter);
     
 
 
-    const averSalesDeptOneFirstQuarterFix = getAverageQuarter(115467,9842,38501); /// искуственно уменьшил разницу что бы увидеть другой код
+//     const averSalesDeptOneFirstQuarterFix = getAverageQuarter(115467,9842,38501); /// искуственно уменьшил разницу что бы увидеть другой код
 
 
-function printBonus(averSalesDept1,averSalesDept2){
-    if (averSalesDept1 < averSalesDept2){
-        const difference = averSalesDept2 - averSalesDept1 ;
-        const averSalesMoreOn = Math.round((difference / averSalesDept2)*100);
-        let results
-        if(averSalesMoreOn>30){
-            console.log( `Department two you have a bonus of ${averSalesMoreOn} % this quarter.`),
-            console.log(averSalesMoreOn);    
-        }else{
-            console.log( `Department two you have no bonus this quarter`),
-            console.log(averSalesMoreOn); 
-        }
+// function printBonus(averSalesDept1,averSalesDept2){
+//     if (averSalesDept1 < averSalesDept2){
+//         const difference = averSalesDept2 - averSalesDept1 ;
+//         const averSalesMoreOn = Math.round((difference / averSalesDept2)*100);
+//         let results
+//         if(averSalesMoreOn>30){
+//             console.log( `Department two you have a bonus of ${averSalesMoreOn} % this quarter.`),
+//             console.log(averSalesMoreOn);    
+//         }else{
+//             console.log( `Department two you have no bonus this quarter`),
+//             console.log(averSalesMoreOn); 
+//         }
         
 
-    }else if (averSalesDept1 > averSalesDept2){
-        const difference = averSalesDept1 - averSalesDept2 ;
-        const averSalesMoreOn = Math.round((difference / averSalesDept1)*100);
-        if(averSalesMoreOn>30){
-            console.log(`Department one you have a bonus of ${averSalesMoreOn} % this quarter.` ),
-            console.log(averSalesMoreOn);
-        }else{
-            console.log(`Department one you have no bonus this quarter`),
-            console.log(averSalesMoreOn);
-        }
-    } else{
-        console.log("Great, you have a draw")
-    }
-}
-//// убрали if statmane добавив еще одно сравнение в первый ИФ
-function printBonus1(averSalesDept1,averSalesDept2){
-    if (averSalesDept1 < averSalesDept2 && averSalesDept2 > (1.3 *averSalesDept1)){
-        const difference = averSalesDept2 - averSalesDept1 ;
-        const averSalesMoreOn = Math.round((difference / averSalesDept2)*100);
+//     }else if (averSalesDept1 > averSalesDept2){
+//         const difference = averSalesDept1 - averSalesDept2 ;
+//         const averSalesMoreOn = Math.round((difference / averSalesDept1)*100);
+//         if(averSalesMoreOn>30){
+//             console.log(`Department one you have a bonus of ${averSalesMoreOn} % this quarter.` ),
+//             console.log(averSalesMoreOn);
+//         }else{
+//             console.log(`Department one you have no bonus this quarter`),
+//             console.log(averSalesMoreOn);
+//         }
+//     } else{
+//         console.log("Great, you have a draw")
+//     }
+// }
+// //// убрали if statmane добавив еще одно сравнение в первый ИФ
+// function printBonus1(averSalesDept1,averSalesDept2){
+//     if (averSalesDept1 < averSalesDept2 && averSalesDept2 > (1.3 *averSalesDept1)){
+//         const difference = averSalesDept2 - averSalesDept1 ;
+//         const averSalesMoreOn = Math.round((difference / averSalesDept2)*100);
         
-            console.log( `Department two you have a bonus of ${averSalesMoreOn} % this quarter.`),
-            console.log(averSalesMoreOn);    
+//             console.log( `Department two you have a bonus of ${averSalesMoreOn} % this quarter.`),
+//             console.log(averSalesMoreOn);    
         
         
 
-    }else if (averSalesDept1 > averSalesDept2 && averSalesDept1> (1.3 * averSalesDept2)){
-        const difference = averSalesDept1 - averSalesDept2 ;
-        const averSalesMoreOn = Math.round((difference / averSalesDept1)*100);
+//     }else if (averSalesDept1 > averSalesDept2 && averSalesDept1> (1.3 * averSalesDept2)){
+//         const difference = averSalesDept1 - averSalesDept2 ;
+//         const averSalesMoreOn = Math.round((difference / averSalesDept1)*100);
         
-            console.log(`Department one you have a bonus of ${averSalesMoreOn} % this quarter.` ),
-            console.log(averSalesMoreOn);
+//             console.log(`Department one you have a bonus of ${averSalesMoreOn} % this quarter.` ),
+//             console.log(averSalesMoreOn);
        
-    } else{
-        console.log("No bonus this quarter")
-    }
-}
+//     } else{
+//         console.log("No bonus this quarter")
+//     }
+// }
 
 
 
 
-const bonusFirstQuarter = printBonus(averSalesDeptOneFirstQuarter,averSalesDeptTwoFirstQuarter);
-const bonusTwoQuarter = printBonus(averSalesDeptOneSecondQuarter,averSalesDeptTwoSecondQuarter);
+// const bonusFirstQuarter = printBonus(averSalesDeptOneFirstQuarter,averSalesDeptTwoFirstQuarter);
+// const bonusTwoQuarter = printBonus(averSalesDeptOneSecondQuarter,averSalesDeptTwoSecondQuarter);
 
-const bonusFirstQuarterFix = printBonus(averSalesDeptOneFirstQuarterFix,averSalesDeptTwoFirstQuarter);
+// const bonusFirstQuarterFix = printBonus(averSalesDeptOneFirstQuarterFix,averSalesDeptTwoFirstQuarter);
 
-const bonusFirstQuarter1 = printBonus1(averSalesDeptOneFirstQuarter,averSalesDeptTwoFirstQuarter);
-const bonusTwoQuarter1 = printBonus1(averSalesDeptOneSecondQuarter,averSalesDeptTwoSecondQuarter);
+// const bonusFirstQuarter1 = printBonus1(averSalesDeptOneFirstQuarter,averSalesDeptTwoFirstQuarter);
+// const bonusTwoQuarter1 = printBonus1(averSalesDeptOneSecondQuarter,averSalesDeptTwoSecondQuarter);
 
