@@ -167,3 +167,22 @@ let b = 30;
 // }
 // alert("Okey")
 
+/////////////////////////////
+
+// for(let i =1 ; i <= 10; i++){
+//     console.log(`Heey i have a ${i} cookies`)
+// };
+
+const user = ['Yurii','Paraka',1992,'no work',['Jeniy','Koss']];
+// console.log(user);
+
+// console.log(user.length)
+const typeArray = [];
+for( let i = 0; i < user.length; i++){
+    console.log(user[i], typeof(user[i]));
+
+    // typeArray.push(typeof(user[i]));  // сделаем по другому
+
+    typeArray[i] = typeof(user[i]);   // результат одинаков
+};
+console.log(typeArray);
