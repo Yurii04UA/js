@@ -173,16 +173,24 @@ let b = 30;
 //     console.log(`Heey i have a ${i} cookies`)
 // };
 
-const user = ['Yurii','Paraka',1992,'no work',['Jeniy','Koss']];
-// console.log(user);
+// const user = ['Yurii','Paraka',1992,'no work',['Jeniy','Koss']];
+// // console.log(user);
 
-// console.log(user.length)
-const typeArray = [];
-for( let i = 0; i < user.length; i++){
-    console.log(user[i], typeof(user[i]));
+// // console.log(user.length)
+// const typeArray = [];
+// for( let i = 0; i < user.length; i++){
+//     console.log(user[i], typeof(user[i]));
 
-    // typeArray.push(typeof(user[i]));  // сделаем по другому
+//     // typeArray.push(typeof(user[i]));  // сделаем по другому
 
-    typeArray[i] = typeof(user[i]);   // результат одинаков
-};
-console.log(typeArray);
+//     typeArray[i] = typeof(user[i]);   // результат одинаков
+// };
+// console.log(typeArray);
+
+const birthYears = [1992,1993,1994,1995,1999];
+const ages = [];
+
+for (i = 0; i< birthYears.length; i++){
+    ages.push(2022-birthYears[i]);
+    console.log(ages);
+}
