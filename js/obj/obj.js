@@ -185,31 +185,69 @@
 // console.log(yuriiObject['calcAge']());
 // console.log(yuriiObject.age);
 
-/////////////// Chalange
-let yuriiObject = {
-    name: "Yurii",
-    lastName: "Paraka",
-    birthYear: 1992,
-    job: "no working",
-    familyMembers: ["Evheniay","Kosmos","Yurii"],
-    hasDriverLicense: true,
-    calcAge: function (birthYear){
-        return 2022- this.birthYear
-    },
-    getSummary: function(){
-        let hasDriverLicense1
-        if(this.hasDriverLicense){
-            hasDriverLicense1 = "he has a driver license"
+// /////////////// Chalange
+// let yuriiObject = {
+//     name: "Yurii",
+//     lastName: "Paraka",
+//     birthYear: 1992,
+//     job: "no working",
+//     familyMembers: ["Evheniay","Kosmos","Yurii"],
+//     hasDriverLicense: true,
+//     calcAge: function (birthYear){
+//         return 2022- this.birthYear
+//     },
+//     getSummary: function(){
+//         // let hasDriverLicense1  //// <-- можно сделать тоже самое тернарным оператором
+//         // if(this.hasDriverLicense){
+//         //     hasDriverLicense1 = "he has a driver license"
             
-        }else{
-            hasDriverLicense1 = "he has a not driver license"
-        }
-        return  `${this.name} is a ${this.calcAge()}-year old,${this.job} and ${hasDriverLicense1}`
-        
+//         // }else{
+//         //     hasDriverLicense1 = "he has a not driver license"
+//         // }
+//         return  `${this.name} is a ${this.calcAge()}-year old,${this.job} and ${this.hasDriverLicense ? "he has a driver licence" : "he has a not driver license"}`;
+//     }
+// };
+
+
+// yuriiObject.calcAge
+// console.log(yuriiObject.getSummary())
+// console.log(yuriiObject)
+
+
+
+//// /////////////////
+
+// Test Data: Jack weight 79 kg, height 1.70 m. Mike weighs 91 kg and his height is 1.93 m.
+//first person
+const objJack = {
+    name : 'Jack',
+    lastName: 'White',
+    weight: 79,
+    height: 1.70,
+    BMI: function(){
+        this.bodyMassIndex = (this.weight/(this.height*this.height)).toFixed(1);
+        console.log(this)
+        return this.bodyMassIndex   
     }
+
 };
 
+// second person
+const objMike = {
+    name : 'Mike',
+    lastName: 'Black',
+    weight: 91,
+    height: 1.93,
+    BMI: function(){
+        this.bodyMassIndex = (this.weight/(this.height*this.height)).toFixed(1);
+        console.log(this)
+        return this.bodyMassIndex   
+    }
 
-yuriiObject.calcAge
-console.log(yuriiObject.getSummary())
-console.log(yuriiObject)
+};
+console.log(objJack.BMI());
+
+
+console.log(objMike.BMI());
+
+console.log(`${objJack.name} ${objJack.lastName} BMI (${objJack.bodyMassIndex}) is higher than ${objMike.name} ${objMike.lastName} BMI (${objMike.bodyMassIndex})`)
