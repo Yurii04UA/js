@@ -4,12 +4,14 @@ body {
    box-sizing: border-box;
    background-color: #000000de;
    font-family: 'Press Start 2P', cursive;
+   font-size: 14px;
    color: white;
  }
  h1,h2,h3,h4,h5,h6,p,a,div,span,input,button,form {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
+   font-family: inherit;
  }
  *{
    box-sizing: border-box;
@@ -24,15 +26,59 @@ body {
 
 .header{
    height: 40vh;
-   border-bottom:10px solid white;
+   /* border-bottom:10px solid white; */
    position: relative;
+   padding: 0 10px;
 }
-.test {
+
+.header_wrapper{
+   display: flex;
+   justify-content: space-between;
+   padding-top: 15px;
+}
+
+.title{
+   position: absolute;
+   left: 50%;
+   top: 55%;
+   transform: translateX(-50%);
+   text-align: center;
+}
+
+.number_between{
+   text-align: center;
+   padding-left: 10px;
+}
+
+.secret_number{
+   height: 80px;
+   width: 200px;
+   background-color: white;
+   position: absolute;
+   top: 100%;
+   left: 50%;
+   transform: translate(-50%,-45%);
+   color: black;
+   font-size: 55px;
+   text-align: center;
+   line-height: 80px;
+   z-index: 11;
+   border-radius: 5px;
+}
+
+.line {
    width: 100vw;
    height: 10px;
    background-color: white;
    position: absolute;
    top: 40vh;
-   z-index: 100;
+   z-index: 10;
    transform: translateY(-100%)
+}
+
+.btn{
+   width: 180px;
+   font-size: 22px;
+   line-height: 30px;
+   text-align: center;
 }
