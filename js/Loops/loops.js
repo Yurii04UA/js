@@ -263,9 +263,9 @@ const calculateTips = (bill) => {
    };
 
    for(let i = 0; i < bills.length; i++){
-      let a = calculateTips(bills[i]);
-      tips.push(a);
-      totals.push(a+bills[i]);
+      const tip = calculateTips(bills[i]); 
+      tips.push(tip);
+      totals.push(tip+bills[i]);
    };
    
    console.log(`Show the tips 
@@ -276,14 +276,14 @@ const calculateTips = (bill) => {
 
 /////// test
 
-function calculateAverage (arr){
-   let summ = 0;
-   let calcAver 
+function calculateAverage (arr){   
+   let sum = 0;
+   let calcAver;
    for(let i = 0; i < arr.length; i++){
-      summ = summ + arr[i]
+      sum = sum + arr[i]; // высчитываем сумму всех элем в массиве 
    }
    // return summ
-   return calcAver = summ / arr.length
+   return calcAver = sum / arr.length
 }
 
 // const ss = [1,2,3,4,5,6,7,8,9,10,11,12,13]
@@ -291,3 +291,4 @@ function calculateAverage (arr){
 console.log(bills, tips, totals, calculateAverage(totals))
 
 // console.log(calculateAverage(ss))
+
