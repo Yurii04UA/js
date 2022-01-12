@@ -187,10 +187,107 @@ let b = 30;
 // };
 // console.log(typeArray);
 
-const birthYears = [1992,1993,1994,1995,1999];
-const ages = [];
+// const birthYears = [1992,1993,1994,1995,1999];
+// const ages = [];
 
-for (i = 0; i< birthYears.length; i++){
-    ages.push(2022-birthYears[i]);
-    console.log(ages);
+// for (i = 0; i< birthYears.length; i++){
+//     ages.push(2022-birthYears[i]);
+//     console.log(ages);
+// }
+
+
+// <----------- Continue & break 
+      //<---с помощью Continue можно выводить какие то одни значения например строки
+      //<---break выходит с цикла при соответствии
+// const user = ['Yurii','Paraka',1992,'no work',['Jeniy','Koss'],'Hello',false];
+
+// for( let i = 0; i < user.length; i++){   
+//    // if (typeof(user[i]) !== 'string') continue; //<--- тут мы проверяем является ли элем массива стоковым значением, если да то выполняется код и переходит на следующую итерацию, если элем не является стоковым то переходит на следюющую иттерацию без выполнения кода
+//    // if (typeof(user[i]) !== 'boolean') continue; // <---выводим только булеан значения
+//     console.log(user[i], typeof(user[i])); 
+// };
+//    console.log("///////////////////////")
+// for( let i = 0; i < user.length; i++){   
+//    //  if (typeof(user[i]) === 'number') break; //<--- тут мы проверяем является ли элем массива чистловым значением, если да то цикл останавливается( будет выводится все до того момента пока элемент не будет равен числу)
+//     if (typeof(user[i]) === 'boolean') break; // <---выводит все до булеан значения булеан значения
+//     console.log(user[i], typeof(user[i])); 
+// };
+
+
+// const user = ['Yurii','Paraka',1992,'no work',['Jeniy','Koss'],'Hello',false];
+
+//    for(let i = user.length - 1; i >= 0; i-- ){
+//       console.log(i,user[i]);
+//    }
+//////// <------------- loops in loops
+
+
+// for (let i = 1; i <= 10; i++){
+//    console.log(`Exercise ${i}`);   
+// }
+
+
+/// <--- While loop
+// let i = 1;
+// while( i <=10){
+//    console.log(i)
+//    i++
+// }
+
+/// <--- While loop можно делать без определенного счетчика
+// let diceNumb = Math.trunc(Math.random()*6)+1;
+// console.log(`Number before loop ${diceNumb}`);
+
+// while(diceNumb !==6){
+//    console.log(diceNumb);  // будем выводить в консоль до тех пор пока в случайном порядка попажеься 6
+//    diceNumb= Math.trunc(Math.random()*6)+1;
+// }
+
+
+// test 
+let bills = [31,95,276,540,27,205,11,1180,96,57];
+
+let tips = [];
+let totals = [];
+
+const calculateTips = (bill) => {
+   let tipsCalc
+   if(bill <= 20){
+      tipsCalc = (bill*20)/100;
+      //  console.log('20%')
+   }else {
+      tipsCalc = (bill*15)/100;
+      //  console.log('15%')
+   }
+      return tipsCalc; 
+   };
+
+   for(let i = 0; i < bills.length; i++){
+      let a = calculateTips(bills[i]);
+      tips.push(a);
+      totals.push(a+bills[i]);
+   };
+   
+   console.log(`Show the tips 
+      ${tips}`);
+   console.log(`Show the total bells 
+      ${totals}`);
+   
+
+/////// test
+
+function calculateAverage (arr){
+   let summ = 0;
+   let calcAver 
+   for(let i = 0; i < arr.length; i++){
+      summ = summ + arr[i]
+   }
+   // return summ
+   return calcAver = summ / arr.length
 }
+
+// const ss = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+
+console.log(bills, tips, totals, calculateAverage(totals))
+
+// console.log(calculateAverage(ss))
