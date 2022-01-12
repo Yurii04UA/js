@@ -1,0 +1,38 @@
+body {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   background-color: #000000de;
+   font-family: 'Press Start 2P', cursive;
+   color: white;
+ }
+ h1,h2,h3,h4,h5,h6,p,a,div,span,input,button,form {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
+ *{
+   box-sizing: border-box;
+ }
+ 
+
+.container{
+   max-width: 1225px;
+   width: 100%;
+   margin: 0 auto;
+}
+
+.header{
+   height: 40vh;
+   border-bottom:10px solid white;
+   position: relative;
+}
+.test {
+   width: 100vw;
+   height: 10px;
+   background-color: white;
+   position: absolute;
+   top: 40vh;
+   z-index: 100;
+   transform: translateY(-100%)
+}
