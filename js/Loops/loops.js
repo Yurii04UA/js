@@ -291,4 +291,3 @@ function calculateAverage (arr){
 console.log(bills, tips, totals, calculateAverage(totals))
 
 // console.log(calculateAverage(ss))
-

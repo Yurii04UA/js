@@ -1,7 +1,9 @@
-body{
+* {
+    box-sizing: border-box;
+}
+body,h1,h2,h3,h4,p,ul[class],ol[class],li{
     padding: 0;
-    margin: 0;
-   
+    margin: 0;  
 }
 
 .container{
