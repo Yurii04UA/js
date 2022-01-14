@@ -65,53 +65,122 @@ while
 // }
 // b()
 //  
-let btn = document.querySelector(".fuck")
-let startTime = new Date().getTime()
-let square = document.querySelector(".square");
-function generateRandomColor(){
-let randomColor = "#"+(Math.floor(Math.random()*16777215).toString(16));
-    return randomColor;
-}
-let makeSquareVisible = function(){
-    square.style.display = "block"
-    startTime = new Date().getTime()
-    square.style.top = (Math.random()*400 )+"px"
-    square.style.left = (Math.random()*700 )+"px"
-    square.style.width = (Math.random()*300+50)+"px"
-    square.style.height = (Math.random()*300+50)+"px"
-        if (Math.random() < 0.3){
-            square.style.borderRadius = "50%"
-            square.style.background = generateRandomColor()
-            square.style.borderBottom = "0"
-        }else if ((Math.random() >= 0.3) && (Math.random() <= 0.7)){
-            square.style.borderRadius = "0%"
-            square.style.background = generateRandomColor()
-            square.style.borderBottom = "0"
-        }else {
-            square.style.width = "0px"
-            square.style.height = "0px"
-            square.style.borderLeft = "50px solid transparent"
-            square.style.borderRight = "50px solid transparent"
-            square.style.borderBottom = "100px solid "+ generateRandomColor()
-            square.style.background = "transparent"
-        }
-}
+// let btn = document.querySelector(".fuck")
+// let startTime = new Date().getTime()
+// let square = document.querySelector(".square");
+// function generateRandomColor(){
+// let randomColor = "#"+(Math.floor(Math.random()*16777215).toString(16));
+//     return randomColor;
+// }
+// let makeSquareVisible = function(){
+//     square.style.display = "block"
+//     startTime = new Date().getTime()
+//     square.style.top = (Math.random()*400 )+"px"
+//     square.style.left = (Math.random()*700 )+"px"
+//     square.style.width = (Math.random()*300+50)+"px"
+//     square.style.height = (Math.random()*300+50)+"px"
+//         if (Math.random() < 0.3){
+//             square.style.borderRadius = "50%"
+//             square.style.background = generateRandomColor()
+//             square.style.borderBottom = "0"
+//         }else if ((Math.random() >= 0.3) && (Math.random() <= 0.7)){
+//             square.style.borderRadius = "0%"
+//             square.style.background = generateRandomColor()
+//             square.style.borderBottom = "0"
+//         }else {
+//             square.style.width = "0px"
+//             square.style.height = "0px"
+//             square.style.borderLeft = "50px solid transparent"
+//             square.style.borderRight = "50px solid transparent"
+//             square.style.borderBottom = "100px solid "+ generateRandomColor()
+//             square.style.background = "transparent"
+//         }
+// }
 
-    square.addEventListener("click", function () {
-    square.style.display = "none"
+//     square.addEventListener("click", function () {
+//     square.style.display = "none"
     
 
-    let endTime = new Date().getTime()
-    let finishTime = (endTime - startTime)/1000
-    let reactionTime = document.querySelector(".reactionTime").innerHTML = finishTime + " seconds";
-    setTimeout(makeSquareVisible, Math.random()*3000)
+//     let endTime = new Date().getTime()
+//     let finishTime = (endTime - startTime)/1000
+//     let reactionTime = document.querySelector(".reactionTime").innerHTML = finishTime + " seconds";
+//     setTimeout(makeSquareVisible, Math.random()*3000)
     
-})
-btn.addEventListener("click", function () {
-    setTimeout(makeSquareVisible, Math.random()*3000)
-    btn.style.display = "none"
+// })
+// btn.addEventListener("click", function () {
+//     setTimeout(makeSquareVisible, Math.random()*3000)
+//     btn.style.display = "none"
+// })
+
+// console.log("#"+(Math.floor(Math.random()*16777215).toString(16)))
+
+
+
+
+//////////////////////// <---- асинхронность
+
+
+// console.log('start');
+// console.log('start 2');
+
+
+// setTimeout(function(){
+//     console.log('Inside timout 2 sec');
+// },0);
+
+// console.log('end');
+
+// console.log('Request data...');
+// setTimeout(()=>{
+//     console.log('Preparing data...')
+
+//     const backendData = {
+//         server: 'aws',
+//         port: 2000,
+//         status: 'working'
+//     }
+
+//     setTimeout(() =>{
+//         backendData.modified = true
+//         console.log('Data received', backendData)
+
+//         setTimeout(()=>{
+//             console.log('pisyn')
+//         },2000)
+//     },2000)
+// },2000);
+
+
+///////// promises <-------------
+
+const p = new Promise(function(resolve, reject){
+    setTimeout(()=>{
+        console.log('Preparing data...')
+
+    const backendData = {
+        server: 'aws',
+        port: 2000,
+        status: 'working'
+    }
+    resolve(backendData) // передаем значние в Р и получаем ее через  p.then
+    },2000)
+
 })
 
-console.log("#"+(Math.floor(Math.random()*16777215).toString(16)))
+p.then(data =>{
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            data.modif = true
+            reject(data)
+        },2000)
+    })
+//  p2.then(clientData => {
+//         console.log('Data recevied', clientData)
+//  })
+}).then(clientData => {
+    console.log('Data recevied', clientData)
+})
+.catch(err => console.error('Error: ',err))/// методом .catch(err => console.error('Error: ',err))  ловим ошибки (для примера заменить resolve на reject)
+.finally(() => console.log('Finally'))  /// будет выводить даже если есть ошибка
 
 
