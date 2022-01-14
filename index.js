@@ -153,34 +153,75 @@ while
 
 ///////// promises <-------------
 
-const p = new Promise(function(resolve, reject){
-    setTimeout(()=>{
-        console.log('Preparing data...')
+// const p = new Promise(function(resolve, reject){
+//     setTimeout(()=>{
+//         console.log('Preparing data...')
 
-    const backendData = {
-        server: 'aws',
-        port: 2000,
-        status: 'working'
-    }
-    resolve(backendData) // передаем значние в Р и получаем ее через  p.then
-    },2000)
+//     const backendData = {
+//         server: 'aws',
+//         port: 2000,
+//         status: 'working'
+//     }
+//     resolve(backendData) // передаем значние в Р и получаем ее через  p.then
+//     },2000)
 
-})
+// })
 
-p.then(data =>{
-    return new Promise((resolve, reject)=>{
-        setTimeout(()=>{
-            data.modif = true
-            reject(data)
-        },2000)
-    })
-//  p2.then(clientData => {
-//         console.log('Data recevied', clientData)
-//  })
-}).then(clientData => {
-    console.log('Data recevied', clientData)
-})
-.catch(err => console.error('Error: ',err))/// методом .catch(err => console.error('Error: ',err))  ловим ошибки (для примера заменить resolve на reject)
-.finally(() => console.log('Finally'))  /// будет выводить даже если есть ошибка
+// p.then(data =>{
+//     return new Promise((resolve, reject)=>{
+//         setTimeout(()=>{
+//             data.modif = true
+//             reject(data)
+//         },2000)
+//     })
+// //  p2.then(clientData => {
+// //         console.log('Data recevied', clientData)
+// //  })
+// }).then(clientData => {
+//     console.log('Data recevied', clientData)
+// })
+// .catch(err => console.error('Error: ',err))/// методом .catch(err => console.error('Error: ',err))  ловим ошибки (для примера заменить resolve на reject)
+// .finally(() => console.log('Finally'))  /// будет выводить даже если есть ошибка
 
 
+
+
+// const b = fetch('https://jsonplaceholder.typicode.com/users')
+// .then(response =>  response.json())
+// .then(data => console.log(data))
+
+
+const url = 'https://jsonplaceholder.typicode.com/users';
+
+function getUsers (url) {
+  return fetch(url)
+    .then(response => response.json())
+    .then(json => renderData(json))
+    .catch(err => console.error('Error: '+ err))
+};
+
+ const renderData = data => {
+   const array = []
+   data.forEach(el => {
+     array.push(el)
+   });
+    console.log(array)
+ };
+
+ const a = getUsers(url);
+
+ console.log(a);
+
+
+
+  
+
+    
+ 
+
+  
+  
+     
+
+  
+  
