@@ -6,17 +6,42 @@ const btnCheck = document.querySelector('.check');
 
 const input = document.querySelector('.input_number');
 const secretNumber = document.querySelector('#secret_number');
+
+const randomNumber = Math.round(Math.random()*100+1);
+console.log(randomNumber)
+let score = 10;
+const showScore = document.querySelector('#score');
+showScore.innerHTML = score
+
+
 // btn.addEventListener('click', ()=>{   /// check of working
 //    promptMessage.innerHTML = 'well done! you did it';
 //    document.body.style.backgroundColor = "#1e994af2";
 // });
 
+
+   
+
+
+
 btnCheck.addEventListener('click', () => {
-   const quessingNumber = +input.value;
+   const guessingNumber = +input.value;
    
-   if(!quessingNumber){
-      promptMessage.innerHTML = 'Insert the number'
-   }
-   
+      if(!guessingNumber){
+         promptMessage.innerHTML = 'Insert the number';
+      } else if (guessingNumber == randomNumber){
+         promptMessage.innerHTML = 'Yes, you are quite right. Well done';
+         secretNumber.innerHTML = randomNumber;
+         document.body.style.backgroundColor = '#1e994af2'
+      } else if (guessingNumber < randomNumber){
+         promptMessage.innerHTML = 'No,secret number <span style = "color: red">less</span> than';
+         showScore.innerHTML = --score
+      }else{
+         promptMessage.innerHTML = 'No,secret number <span style = "color: red">more</span> than';
+         showScore.innerHTML = --score
+         
+      }
+
+      
 });
 
