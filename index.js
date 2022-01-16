@@ -186,31 +186,7 @@ while
 
 
 
-// const b = fetch('https://jsonplaceholder.typicode.com/users')
-// .then(response =>  response.json())
-// .then(data => console.log(data))
 
-
-const url = 'https://jsonplaceholder.typicode.com/users';
-
-function getUsers (url) {
-  return fetch(url)
-    .then(response => response.json())
-    .then(json => renderData(json))
-    .catch(err => console.error('Error: '+ err))
-};
-
- const renderData = data => {
-   const array = []
-   data.forEach(el => {
-     array.push(el)
-   });
-    console.log(array)
- };
-
- const a = getUsers(url);
-
- console.log(a);
 
 
 
