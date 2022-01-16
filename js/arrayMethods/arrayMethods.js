@@ -14,4 +14,4 @@ console.log(people);
 
 people.forEach((elem,index) => {
   console.log(elem,index)
-})
+});
