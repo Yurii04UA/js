@@ -21,7 +21,7 @@ people.forEach((elem,index) => {
 console.log(people);
 
   ////////////// <-- Map
-//// с помощью forEach текущий массив перерабатывается в новый
+//// с помощью Map текущий массив перерабатывается в новый
   const newPeople = people.map((person,index) => {
     return `${person.name} (${person.birthYear} (${person.age}))`
     
@@ -50,5 +50,10 @@ console.log(people);
 // const more18 = people.filter(person => person.age >= 18);   ///<--- та же самая запись с полным функционалом стрелочной функции
 // console.log(more18);
 
+////// <----------- Find
+
+
+const yurii = people.find(person => person.name === "Yurii");
+console.log(yurii)
 
 
