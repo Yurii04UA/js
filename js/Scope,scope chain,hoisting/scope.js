@@ -1,4 +1,8 @@
 `use strict`
+// Variable Environment --- Scope chain --- this
+
+
+
 function getAge (birthYear){
    const age = 2022 - birthYear;  // age - function scope
    
@@ -12,17 +16,17 @@ function getAge (birthYear){
 };
 
 const name = 'Yurii';   // /global scope
-console.log(getAge(1992));
+// console.log(getAge(1992));
 
-console.log();
+// console.log();
 
 function age (age){
    if (age < 18){
       let message = "You too young";   // // message - block scope
-      console.log(message);
+      // console.log(message);
    } else{
       message = 'You too old';
-      console.log(message);
+      // console.log(message);
    }
 }
 
@@ -55,4 +59,20 @@ const sum3 = () =>{  /// arrow function
    return 2+3
 }
 
-console.log(sum(),sum2(),sum3())
+// console.log(sum(),sum2(),sum3())
+
+
+ //////////////////////////// this <<----
+
+
+ const user1 = {
+    name: 'Yurii',
+    birthYear: 1992,
+    getAge: function(){
+       return 2022 - this.birthYear
+    }
+ };
+console.log(
+   user1.getAge());
+
+   console.log(this);
