@@ -3,17 +3,17 @@
 
 
 
-function getAge (birthYear){
-   const age = 2022 - birthYear;  // age - function scope
+// function getAge (birthYear){
+//    const age = 2022 - birthYear;  // age - function scope
    
-   function printAge(){
-      const info = `You are ${age}, born in ${birthYear}`;
-      console.log(info)
-   }
+//    function printAge(){
+//       const info = `You are ${age}, born in ${birthYear}`;
+//       console.log(info)
+//    }
 
-   printAge()
-   return age
-};
+//    printAge()
+//    return age
+// };
 
 const name = 'Yurii';   // /global scope
 // console.log(getAge(1992));
@@ -63,16 +63,44 @@ const sum3 = () =>{  /// arrow function
 
 
  //////////////////////////// this <<----
+//  const user1 = {
+//     name: 'Yurii',
+//     birthYear: 1992,
+//     getAge: function(){
+//       //  return 2022 - this.birthYear
+//       console.log(this);
+//       console.log(2022 - this.birthYear);
+//     }
+//  };
+//  user1.getAge();
+// // console.log(user1.getAge());
 
+// console.log(this);
 
- const user1 = {
-    name: 'Yurii',
-    birthYear: 1992,
-    getAge: function(){
-       return 2022 - this.birthYear
-    }
- };
-console.log(
-   user1.getAge());
+// const getAge = function (birthYear){
+//     console.log(2022 - birthYear)
+//     console.log(this)
+// };
+// getAge(1992);
 
-   console.log(this);
+const user2 = {
+   birthYear: 1993
+};
+// user2.getAge = user1.getAge;
+// user2.getAge();
+
+const user1 = {
+   name: 'Yurii',
+   birthYear: 1992,
+   getAge: function(){
+   //   console.log(2022 - this.birthYear);
+
+     const isAdult =  () => {
+      console.log(2022 - this.birthYear >= 18)
+      console.log(this)
+     }
+     isAdult()
+   }
+};
+
+user1.getAge();
