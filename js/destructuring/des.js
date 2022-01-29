@@ -112,7 +112,7 @@ const game = {
     ],
   ],
   score: '2:1',
-  scored: ['Kroos', 'Benzema', 'Mingueza'],
+  scored: ['Kroos','Mingueza', 'Benzema', 'Mingueza'],
   date: 'Apr 10th, 2021',
   odds: {
     team1: 1.48,
@@ -140,13 +140,13 @@ const allPlayers = [...players1, ...players2];
 
 ////// 4. REAL MADRID (team1) used 5 substitute players during the game. Create a new array (players1Total) containing all original players of team1 as well as ‘Marcelo’, 'Isco', 'Asensio', ‘Diaz' and 'Odriozola'.
 
-const players1Total = [...players1, 'Marcelo', 'Isco', 'Asensio', 'Diaz' , 'Odrizola' ];
-console.log(players1Total);
+// const players1Total = [...players1, 'Marcelo', 'Isco', 'Asensio', 'Diaz' , 'Odrizola' ];
+// console.log(players1Total);
 
 ////// 5. Based on the game.odds object, create one variable for each odd (called team1, draw and team2).
 
-const {team1: team1Odds,team2: team2Odds, draw} = game.odds;
-console.log(team1Odds,team2Odds,draw);
+// const {team1: team1Odds,team2: team2Odds, draw} = game.odds;
+// console.log(team1Odds,team2Odds,draw);
 
 ///// 6. A write function printGoals that takes an arbitrary number of player names (NOT an array) and prints each one to the console along with the total number of goals scored (the number of player names passed to the function).
 ///// Test data for 6.: First use 'Mingueza', 'Messi', 'Modrich' and 'Nacho' players. Then call the function again with the players from game.scored.
@@ -155,7 +155,61 @@ function printGoals (...items){
         console.log(`${items[i]}  Score: (${items.length})`)
     }
 };
-printGoals('Mingueza', 'Messi', 'Modrich','Nacho');
-printGoals(...game.scored);
+// printGoals('Mingueza', 'Messi', 'Modrich','Nacho');
+// printGoals(...game.scored);
 
-///// 7. The team with the lower odds will win more likely. Print to the console which team is more likely to win, WITHOUT using an if / else or ternary operator.
+//1. Loop through the game.scored array and print the name of each player to the console along with the goal number (example: “Goal 1 - Kroos”)
+// 2. Use a loop to calculate the average odd and print it to the console 
+// 3. Print 3 odds to the console, but formatted, exactly like this:
+// Rate for REAL MADRID victory: 1.48 
+// Rate for draw: 2.53
+// Rate for BARCELONA victory: 4.25
+// Get team names directly from the game object, don't hardcode them 
+// 4. Bonus: create an object called goalScorers that contains the names of the players who scored as properties and the number of goals as a value. In this game it will look like this:
+//       {
+//         Kroos: 1,
+//         Benzema: 1,
+//         Mingueza: 1
+// }
+//1. Loop through the game.scored array and print the name of each player to the console along with the goal number (example: “Goal 1 - Kroos”)
+for (const goal of game.scored.entries()) {
+  console.log(`Goal ${goal[0]+1} - ${goal[1]}`);
+}
+
+// 2. Use a loop to calculate the average odd and print it to the console 
+
+let oddsSum = 0;
+const odds = Object.values(game.odds);
+for (let odd of Object.values(game.odds)){  
+  oddsSum+=odd;
+};
+// console.log(oddsSum);
+
+const averageOdds = oddsSum / odds.length;
+console.log(averageOdds);
+
+// 3. Print 3 odds to the console, but formatted, exactly like this:
+// Rate for REAL MADRID victory: 1.48 
+// Rate for draw: 2.53
+// Rate for BARCELONA victory: 4.25
+
+
+for (const [name, odd] of Object.entries(game.odds)){
+  const mutableText = name === 'draw' ? 'draw' : `${game[name]} victory`
+  console.log(`Rate for ${mutableText} : ${odd} `);
+}
+
+
+//4. Bonus: create an object called goalScorers that contains the names of the players who scored as properties and the number of goals as a value. In this game it will look like this:
+//       {
+//         Kroos: 1,
+//         Benzema: 1,
+//         Mingueza: 1
+// }
+
+const goalScorers = {};
+
+for (const player of game.scored){
+  goalScorers[player] ? goalScorers[player]++ : goalScorers[player] = 1
+}
+console.log(goalScorers);
