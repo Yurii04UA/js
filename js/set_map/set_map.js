@@ -129,7 +129,7 @@ function maskCreditCard (cardNumber){
    const maskCreditCard = firstFour.padEnd(strCardNumber.length-4, '*') + lastFour
    console.log(maskCreditCard);
 }
-maskCreditCard(cardNumber)
+// maskCreditCard(cardNumber)
 
 
 
@@ -140,5 +140,57 @@ maskCreditCard(cardNumber)
 // console.log(capitalizeName(n2));
 
 
+// Task 4
+
+/* Write a program that takes a list of variable names written in underscore_case and converts them to camelCase.
+Input will come from a textarea html element inserted into the DOM (see code below to insert elements) and the transformation will happen when the button is clicked.
+
+Test data (for inserting into the textarea including spaces):
+
+underscore_case
+  first_name
+next_Variable
+   Calculate_AGE
+arrived_flight
+
+This output should appear (5 separate console.log outputs):
+underscoreCase 
+firstName 
+nextVariable 
+calculateAge 
+arrivedFlight
+
+Hints:
+Remember which character defines a newline in a textbox
+The solution should only work for a two-word variable like first_second
+This is a tricky task, so start watching the solution in case you get stuck. Then pause and continue! */
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+const btn = document.querySelector('button')
+
+btn.addEventListener('click', () => {
+   const text = document.querySelector('textarea').value;
+   console.log(text);
+})
+
+;
 
 
+function normalizedText  (text){
+   const toLowerCase = text.toLowerCase().split('_');
+   const messageForError = 'You enter incorrect data';
+   const fixedText = [];
+   if(toLowerCase.length > 2){
+      console.log(messageForError);
+   }else{
+     for(const n of toLowerCase){
+        fixedText.push(n[0].toUpperCase() + n.slice(1));
+     };   
+   };
+   return fixedText.join('');
+}console.log(normalizedText('next_Variable'));
+
+function RenderData (){
+
+}
