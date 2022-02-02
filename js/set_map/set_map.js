@@ -167,14 +167,12 @@ This is a tricky task, so start watching the solution in case you get stuck. The
 
 document.body.append(document.createElement('textarea'));
 document.body.append(document.createElement('button'));
-const btn = document.querySelector('button')
 
-btn.addEventListener('click', () => {
-   const text = document.querySelector('textarea').value;
-   console.log(text);
-})
 
-;
+
+const btn = document.querySelector('button');
+
+
 
 
 function normalizedText  (text){
@@ -182,7 +180,9 @@ function normalizedText  (text){
    const messageForError = 'You enter incorrect data';
    const fixedText = [];
    if(toLowerCase.length > 2){
-      console.log(messageForError);
+      let p = document.createElement('p');
+   p.innerHTML = messageForError;
+   document.body.append(p);;
    }else{
      for(const n of toLowerCase){
         fixedText.push(n[0].toUpperCase() + n.slice(1));
@@ -192,5 +192,14 @@ function normalizedText  (text){
 }console.log(normalizedText('next_Variable'));
 
 function RenderData (){
-
-}
+   btn.addEventListener('click', () => {
+      const text = document.querySelector('textarea').value;
+      let FinalText = normalizedText(text);
+      
+      let p = document.createElement('p');
+      p.innerHTML = FinalText;
+      document.body.append(p);
+      
+   });
+};
+RenderData()
