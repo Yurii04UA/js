@@ -33,6 +33,71 @@ function converter (text, func){
 
 const greet = text => name => console.log(`${text} ${name}!!!`);
 
-greet('HELLLO11')('my friend')
+greet('HELLLO11')('my friend');
+
+/// Methods CALL APPLY
 
 
+
+const airline123 = {
+   airlineName: 'SkyUP',
+   airlineCode: 'SU',
+   bookings: [],
+   book: function book (flightNumb, passengerName){
+      console.log(`${passengerName} has booked a ticket on ${this.airlineName} flight ${this.airlineCode}${flightNumb}`);
+      this.bookings.push({
+         flight: `${this.airlineCode}${flightNumb}`,
+         passenger: passengerName,
+      });
+   }
+};
+
+// airline123.book(321, 'Yurii Paraka');
+// airline123.book(512, 'Para Olf');
+
+// console.log(airline123);
+
+
+const airline666 = {
+   airlineName: 'UkrLine',
+   airlineCode: 'UA',
+   bookings: [],
+   
+};
+// airline666.book(222,'sd dd');
+// airline666.book(111,'sd dd');
+// console.log(airline666);
+
+
+
+
+// const books = airline123.book;
+// books.call(airline666, 666,'Linda Pizda');  /// call - явно указывает на что указывает THIS
+// books.call(airline666, 555,'Li Pia');  
+// console.log(airline666);
+
+// books.call(airline123, 777,'Liza Piza');  
+// console.log(airline123);
+// books(1222, 'Sdf sf');
+// airline666.book(666, 'Holy Shit');
+
+///// Methods Bind
+
+airline666.airplanes = 200
+console.log(airline666);
+airline666.buyAirplanes = function(){
+   console.log(this);
+   this.airplanes++
+   console.log(this.airplanes);
+};
+
+document.querySelector('.btn').addEventListener('click',airline666.buyAirplanes.bind(airline666));;
+
+
+/// Partial app
+
+const getPercentage = ( totalValue,value) => (value/totalValue)*100;
+
+console.log(getPercentage(20,111));
+const getPercentage28123 = getPercentage.bind(null, 28123);
+console.log(getPercentage28123(10000));
