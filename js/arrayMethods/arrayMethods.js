@@ -42,14 +42,14 @@
     return people
   });
 
-  console.log(people);
+  // console.log(people);
 
   ////////////// <-- Map
   //// с помощью Map текущий массив перерабатывается в новый
-  const newPeople = people.map((person, index) => {
-     nreturn `${person.name} (${person.birthYear} (${person.age}))`
+  // const newPeople = people.map((person, index) => {
+  //    nreturn `${person.name} (${person.birthYear} (${person.age}))`
 
-  });
+  // });
   // console.log(newPeople);
 
 
@@ -78,4 +78,30 @@
 
 
   const yurii = people.find(person => person.name === "Yurii");
-  console.log(yurii)
+  // console.log(yurii);
+
+  const currencies = new Map([
+    ['USD', 'United Stats dollar'],
+    ['EUR','Euro'],
+    ['UAN','Ukrainian hryvhya']
+  ])
+  console.log(currencies);
+
+  const transactions = [300, 250, -500, 5000, -750, -180, 50, 1400, -350, -120];
+///////////////
+  let arr = ['a','b','c','d','e','f'];
+
+  // console.log(arr);
+  // console.log(arr.slice(1,4)); // возвращает новый вырезаный массив
+
+// for(const transaction of transactions){
+//   if(transaction > 0){
+//     console.log(`${transaction} was deposit`);
+//   } else{
+//     console.log(`${Math.abs(transaction)} was withdrew `);
+//   }
+// }
+
+transactions.forEach((item, i) =>{
+  item > 0 ? console.log(`${item} was deposit, index ${i}`) : console.log(`${Math.abs(item)} was withdrew, index ${i}`) 
+})
