@@ -109,10 +109,10 @@ let arr = ["a", "b", "c", "d", "e", "f"];
 //   console.log(`key: ${key}//// value: ${value}`);
 // })
 
-const catsJane = [4, 5, 3, 11, 6, 2, 4, 1, 5, 9];
-const catsJulia = [2, 4, 5, 1, 13, 2, 15, 8, 3, 7];
-const catsJane2 = [3, 5, 9, 14, 1, 2, 6, 8, 3, 10];
-const catsJulia2 = [8, 2, 10, 1, 2, 5, 6, 3, 1, 4];
+// const catsJane = [4, 5, 3, 11, 6, 2, 4, 1, 5, 9];
+// const catsJulia = [2, 4, 5, 1, 13, 2, 15, 8, 3, 7];
+// const catsJane2 = [3, 5, 9, 14, 1, 2, 6, 8, 3, 10];
+// const catsJulia2 = [8, 2, 10, 1, 2, 5, 6, 3, 1, 4];
 
 function verifyCats(arr1, arr2) {
   const fixedArr = arr1.slice(1, -1);
@@ -175,7 +175,7 @@ const accounts = [account1, account2, account3, account4, account5];
 const userNameArray = account1.userName.toLocaleLowerCase().split(" ");
 const userName = userNameArray[0][0] + userNameArray[1][0];
 
-function createNicknames (arr){
+function createNicknames(arr) {
   arr.forEach((item) => {
     const userNameArray = item.userName.toLocaleLowerCase().split(" ");
     const userName = userNameArray.map((item) => item[0]).join("");
@@ -183,6 +183,67 @@ function createNicknames (arr){
   });
 }
 
-createNicknames(accounts)
+createNicknames(accounts);
 
-console.log(accounts);
+// console.log(accounts);
+///// FIlter
+const withdrals = transactions.filter((trans) => trans < 0).join(" ");
+// console.log(withdrals);
+
+// const withdralsTest = [];
+// for(const trans of transactions){
+//   if(trans < 0){
+//     withdralsTest.push(trans)
+// }};
+// console.log(withdralsTest);
+
+const deposit = transactions.filter((item) => item > 0);
+// console.log(deposit);
+
+///// Reduce
+
+const balance = transactions.reduce((acc, item, index, array) => acc + item, 0);
+// console.log(balance);
+
+// const transactions = [300, 250, -500, 5000, -750, -180, 50, 1400, -350, -120];
+const min = transactions.reduce((acc, item) => {
+  if (acc > item) {
+    acc = item;
+    // console.log(acc);
+  }
+  return acc;
+}, 0);
+
+// console.log(min);
+
+const catsJane = [4, 5, 3, 11, 6, 2, 4, 1, 5, 9];
+const catsJulia = [2, 4, 5, 1, 13, 2, 15, 8, 3, 7];
+
+function getAverageHumanAge(arr) {
+  const humanAges = arr
+    .map((cat) => {
+      return cat <= 2 ? cat * 10 : cat * 7;
+    })
+    .filter((item) => item >= 18);
+  const averageAge =
+    humanAges.reduce((acc, item) => {
+      return acc + item;
+    }, 0) / humanAges.length;
+  return averageAge.toFixed(1);
+}
+
+console.log(getAverageHumanAge(catsJane));
+
+const a = [7, 3, 2, 4, 1, 15, 8, 1, 9, 2];
+const b = [1, 16, 12, 4, 5, 1, 3, 11, 7, 2];
+
+console.log(getAverageHumanAge(a));
+console.log(getAverageHumanAge(b));
+
+// const transactions = [300, 250, -500, 5000, -750, -180, 50, 1400, -350, -120];
+
+const totalWithdral = transactions
+  .filter((transaction) => transaction < 0)
+  .map((transaction) => transaction * 0.86)
+  .reduce((acc, transaction) => acc + transaction, 0);
+console.log(totalWithdral);
