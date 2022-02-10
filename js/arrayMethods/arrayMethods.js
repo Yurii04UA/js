@@ -134,7 +134,7 @@ const newTransactions1 = [];
 for (const n of transactions) {
   newTransactions1.push(n * 0.86);
 }
-/////////////////////////////////////
+///////////////////////////////////////////////////
 const account1 = {
   userName: "Cecil Ireland",
   transactions: [500, 250, -300, 5000, -850, -110, -170, 1100],
@@ -186,7 +186,7 @@ function createNicknames(arr) {
 createNicknames(accounts);
 
 // console.log(accounts);
-///// FIlter
+/////////////////////////////////////////////////////////////////////// <----------FIlter
 const withdrals = transactions.filter((trans) => trans < 0).join(" ");
 // console.log(withdrals);
 
@@ -200,7 +200,7 @@ const withdrals = transactions.filter((trans) => trans < 0).join(" ");
 const deposit = transactions.filter((item) => item > 0);
 // console.log(deposit);
 
-///// Reduce
+/////////////////////////////////////////////////////////////////// <----------Reduce
 
 const balance = transactions.reduce((acc, item, index, array) => acc + item, 0);
 // console.log(balance);
@@ -219,7 +219,7 @@ const min = transactions.reduce((acc, item) => {
 const catsJane = [4, 5, 3, 11, 6, 2, 4, 1, 5, 9];
 const catsJulia = [2, 4, 5, 1, 13, 2, 15, 8, 3, 7];
 
-function getAverageHumanAge(arr) {
+const getAverageHumanAge  = arr =>{
   const humanAges = arr
     .map((cat) => {
       return cat <= 2 ? cat * 10 : cat * 7;
@@ -247,3 +247,35 @@ const totalWithdral = transactions
   .map((transaction) => transaction * 0.86)
   .reduce((acc, transaction) => acc + transaction, 0);
 console.log(totalWithdral);
+
+///////////////////////////////////////////////////////////// <----------Find
+
+const coreyMartinezAccount = accounts.find(item => item.userName === "Oliver Avila");
+// console.log(coreyMartinezAccount);
+const sd = 'Jello asd s'
+
+
+
+
+////////////////////////////////////////////////////
+// const input_login = document.querySelector('.login_input_user');
+// const input_pin = document.querySelector('.login_input_pin');
+// const login_btn = document.querySelector('.login_btn');
+// let currentAccount;
+// login_btn.addEventListener('click', (e) => {
+//   e.preventDefault();
+//   const currentAccount = accounts.find(account => account.userNickmases === input_login.value)
+//   if(currentAccount?.pin === +input_pin.value){
+//     input_login.value = '';
+//     input_pin.value = ''
+//     input_pin.blur()
+//     console.log(`Welcome ${currentAccount.userName}`);
+//     document.body.style.background = 'green'
+//   }else{
+//     console.log('Your login or pin INCORECT!!');
+//     document.body.style.background = 'red'
+//   }
+//   console.log(currentAccount);
+// })
+
+////////////////////////////////////////////////////  <---------- FindIndex
