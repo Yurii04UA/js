@@ -219,7 +219,7 @@ const min = transactions.reduce((acc, item) => {
 const catsJane = [4, 5, 3, 11, 6, 2, 4, 1, 5, 9];
 const catsJulia = [2, 4, 5, 1, 13, 2, 15, 8, 3, 7];
 
-const getAverageHumanAge  = arr =>{
+const getAverageHumanAge = (arr) => {
   const humanAges = arr
     .map((cat) => {
       return cat <= 2 ? cat * 10 : cat * 7;
@@ -230,15 +230,15 @@ const getAverageHumanAge  = arr =>{
       return acc + item;
     }, 0) / humanAges.length;
   return averageAge.toFixed(1);
-}
+};
 
-console.log(getAverageHumanAge(catsJane));
+// console.log(getAverageHumanAge(catsJane));
 
 const a = [7, 3, 2, 4, 1, 15, 8, 1, 9, 2];
 const b = [1, 16, 12, 4, 5, 1, 3, 11, 7, 2];
 
-console.log(getAverageHumanAge(a));
-console.log(getAverageHumanAge(b));
+// console.log(getAverageHumanAge(a));
+// console.log(getAverageHumanAge(b));
 
 // const transactions = [300, 250, -500, 5000, -750, -180, 50, 1400, -350, -120];
 
@@ -246,16 +246,15 @@ const totalWithdral = transactions
   .filter((transaction) => transaction < 0)
   .map((transaction) => transaction * 0.86)
   .reduce((acc, transaction) => acc + transaction, 0);
-console.log(totalWithdral);
+// console.log(totalWithdral);
 
 ///////////////////////////////////////////////////////////// <----------Find
 
-const coreyMartinezAccount = accounts.find(item => item.userName === "Oliver Avila");
+const coreyMartinezAccount = accounts.find(
+  (item) => item.userName === "Oliver Avila"
+);
 // console.log(coreyMartinezAccount);
-const sd = 'Jello asd s'
-
-
-
+const sd = "Jello asd s";
 
 ////////////////////////////////////////////////////
 // const input_login = document.querySelector('.login_input_user');
@@ -278,4 +277,93 @@ const sd = 'Jello asd s'
 //   console.log(currentAccount);
 // })
 
-////////////////////////////////////////////////////  <---------- FindIndex
+////////////////////////////////////////////////////  <---------- Some() and Every ()
+////// <---------- Some()
+// const transactions = [300, 250, -500, 5000, -750, -180, 50, 1400, -350, -120];
+// console.log(transactions.includes(250)); /// includes() Проверяет есть ли такой елемент в массива и возвращает ТРУ
+
+const hasWithdrawals = transactions.some((trans) => trans < 0); /// some() Проверяет есть ли елементы которые соответствуют требованиям и возвращает ТРУ
+// console.log(hasWithdrawals);
+
+// const hasWithdrawalsOver5000 = transactions.some(trans => trans < -5000)
+// console.log(hasWithdrawalsOver5000);
+const hasWithdrawalsOver5000 = transactions.some(function (trans) {
+  return trans < -5000;
+});
+// console.log(hasWithdrawalsOver5000);
+
+////// <---------- Every()   Проверяет все елементы на соответсвия условию и вывидит ТРУ
+// console.log(transactions.every((trans) => trans < 0));
+
+////////////////////////////////////////////////////  <---------- flat() and flatMap ()
+
+const someArray = [
+  [1, 2, 3],
+  [2, 1, 3],
+  [3, 4, 1],
+];
+// console.log(someArray.flat()); // <---------- flat() разворачивает внутрнение массивы
+
+// const allTransactionsArray = accounts
+//   .map((account) => account.transactions)
+//   .flat()
+//   .reduce((acc, trans) => acc + trans, 0);
+
+// console.log(allTransactionsArray);
+
+const allTransactionsArray = accounts
+  .flatMap((account) => account.transactions) //<---------- flatMap() заменяет два метора МАР И flat
+  .reduce((acc, trans) => acc + trans, 0);
+
+// console.log(allTransactionsArray);
+
+//////////////////////////////////// Sorting
+/////// String
+const names = ["Yurii", "Sara", "Alex", "Devid"];
+// console.log(names.sort());
+
+///////// Number
+const newTrans = [...transactions];
+// console.log(newTrans);
+const sortTransLowToHigh = newTrans.sort(
+  (a, b) => a - b /// тоже самое как и код ниже
+  /* {
+  if (a > b) {
+    return 1;
+  }
+  if (a < b) {
+    return -1;
+  }
+}  //// result [-750, -500, -350, -180, -120, 50, 250, 300, 1400, 5000] 
+*/
+);
+
+// const sortTransHighToLow = transactions.sort((a, b) => {
+//   if (a > b) {
+//     return -1;
+//   }
+//   if (a < b) {
+//     return 1;
+//   }
+// });  /// result [5000, 1400, 300, 250, 50, -120, -180, -350, -500, -750]
+
+// console.log(sortTransLowToHigh, sortTransHighToLow);
+
+const bankDepositTotal = accounts
+  .flatMap((acc) => acc.transactions)
+  .filter((trans) => trans > 0)
+  .reduce((acc, deposit) => acc + deposit, 0);
+console.log(bankDepositTotal);
+
+const bankWithdroOver300 = accounts
+  .flatMap((acc) => acc.transactions)
+  .filter((trans) => trans < -300); //.length
+console.log(bankWithdroOver300);
+
+const depositAndWithdrowal = accounts
+  .flatMap((acc) => acc.transactions)
+  .reduce((acc, trans) => {
+    trans > 0 ? acc.depositTotal += trans : acc.withdrawalsTotal+=trans
+    return acc
+  }, { depositTotal: 0, withdrawalsTotal: 0 });
+console.log(depositAndWithdrowal);
