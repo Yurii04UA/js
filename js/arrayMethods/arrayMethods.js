@@ -362,8 +362,36 @@ console.log(bankWithdroOver300);
 
 const depositAndWithdrowal = accounts
   .flatMap((acc) => acc.transactions)
-  .reduce((acc, trans) => {
-    trans > 0 ? acc.depositTotal += trans : acc.withdrawalsTotal+=trans
-    return acc
-  }, { depositTotal: 0, withdrawalsTotal: 0 });
+  .reduce(
+    (acc, trans) => {
+      // trans > 0 ? (acc.depositTotal += trans) : (acc.withdrawalsTotal += trans);
+      acc[trans > 0 ? "depositTotal" : "withdrawalsTotal"] += trans;
+      return acc;
+    },
+    { depositTotal: 0, withdrawalsTotal: 0 }
+  );
 console.log(depositAndWithdrowal);
+
+/// welcome work with array in the javascript -> Welcome,Work with Array in the Javascript
+
+function textToTitleCase(text) {
+  const exeption = ["in", "the", "with", "at", "on", "to"];
+  const arrayFromText = text
+    .toLowerCase()
+    .trim()
+    .split(" ")
+    .map((item) => {
+      console.log(item);
+      if (exeption.includes(item)) {
+        return item;
+      } else {
+        return item[0].toUpperCase() + item.slice(1);
+      }
+    })
+    .join(" ");
+
+  console.log(arrayFromText);
+}
+textToTitleCase(
+  " to welcome Work with array in the javascript Asgard TO THE aT my HOMe WITH you "
+);
