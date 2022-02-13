@@ -353,12 +353,12 @@ const bankDepositTotal = accounts
   .flatMap((acc) => acc.transactions)
   .filter((trans) => trans > 0)
   .reduce((acc, deposit) => acc + deposit, 0);
-console.log(bankDepositTotal);
+// console.log(bankDepositTotal);
 
 const bankWithdroOver300 = accounts
   .flatMap((acc) => acc.transactions)
   .filter((trans) => trans < -300); //.length
-console.log(bankWithdroOver300);
+// console.log(bankWithdroOver300);
 
 const depositAndWithdrowal = accounts
   .flatMap((acc) => acc.transactions)
@@ -370,7 +370,7 @@ const depositAndWithdrowal = accounts
     },
     { depositTotal: 0, withdrawalsTotal: 0 }
   );
-console.log(depositAndWithdrowal);
+// console.log(depositAndWithdrowal);
 
 /// welcome work with array in the javascript -> Welcome,Work with Array in the Javascript
 
@@ -381,7 +381,6 @@ function textToTitleCase(text) {
     .trim()
     .split(" ")
     .map((item) => {
-      console.log(item);
       if (exeption.includes(item)) {
         return item;
       } else {
@@ -390,8 +389,62 @@ function textToTitleCase(text) {
     })
     .join(" ");
 
-  console.log(arrayFromText);
+  // console.log(arrayFromText);
 }
 textToTitleCase(
   " to welcome Work with array in the javascript Asgard TO THE aT my HOMe WITH you "
 );
+
+const cats = [
+  { catWeight: 3, foodWeight: 25, owners: ["Natali"] },
+  { catWeight: 6, foodWeight: 90, owners: ["Maria", "Alice"] },
+  { catWeight: 4, foodWeight: 45, owners: ["Alex", "Iren"] },
+  { catWeight: 7, foodWeight: 80, owners: ["Boris"] },
+];
+/// 1.
+cats.forEach((cat) => {
+  cat.recomedPortion = cat.catWeight * 0.75 * 12;
+});
+console.log(cats);
+
+/// 2.
+const ownerAlex = cats.find((cat) => {
+  return cat.owners.includes("Alex");
+});
+
+console.log(ownerAlex);
+console.log(
+  `cats mr. Alexa eat ${
+    ownerAlex.foodWeight < ownerAlex.recomedPortion * 0.9
+      ? "too lose"
+      : "too more"
+  } `
+);
+
+const catsEatTooMachOwners = cats
+  .filter((cats) => cats.foodWeight > cats.recomedPortion * 1.1)
+  .flatMap((cat) => cat.owners);
+const catsEatTooLittleOwners = cats
+  .filter((cats) => cats.foodWeight < cats.recomedPortion * 0.9)
+  .flatMap((cat) => cat.owners);
+
+console.log(
+  `"${catsEatTooMachOwners.join(
+    ", "
+  )} - хозяева кошек, которые едят слишком много!" `
+);
+console.log(catsEatTooLittleOwners);
+
+console.log(cats.some((cat) => cat.foodWeight === cat.recomedPortion));
+
+function catEat(cat) {
+  return (
+    cat.foodWeight > cat.recomedPortion * 0.9 &&
+    cat.foodWeight < cat.recomedPortion * 1.1
+  );
+}
+console.log(cats.some(catEat));
+console.log(cats.filter(catEat));
+
+const cats1 = cats.slice().sort((a,b)=> a.recomedPortion - b.recomedPortion)
+console.log(cats1);
