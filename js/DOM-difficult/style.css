@@ -672,6 +672,11 @@ h4 {
   font-weight: 400;
 }
 
+.btn-cookie{
+  line-height: 15px;
+  margin: 5px 0px;
+}
+
 @media screen and (max-width: 800px) {
   .nav__item{
     margin-left: 0.2rem;
