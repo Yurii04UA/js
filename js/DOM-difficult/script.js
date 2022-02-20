@@ -77,13 +77,53 @@ const section1 = document.querySelector("#section--1");
 
 btnScrollTo.addEventListener("click", (e) => {
   const section1Coords = section1.getBoundingClientRect();
-  console.log(section1Coords);
+  // console.log(section1Coords);
   // console.log(e.target.getBoundingClientRect());
   // console.log('Scroll', window.pageXOffset, window.pageYOffset);
   // console.log('viewport', document.documentElement.clientHeight,document.documentElement.clientWidth);
-  window.scrollTo({
-    left: section1Coords.left, 
-    top: section1Coords.top + window.pageYOffset,
-    behavior: 'smooth'
-  });
+
+  // window.scrollTo({
+  //   left: section1Coords.left,
+  //   top: section1Coords.top + window.pageYOffset,
+  //   behavior: "smooth",
+  // });
+  section1.scrollIntoView({ behavior: "smooth" }); //// та же самая запись что и выше!
 });
+
+//////////////// Smooth page navigation
+
+// document.querySelectorAll(".nav__link").forEach((htmlElem) => {   ///// рабочий но не еффективный способ, лучше делегировать событие на родителя
+//   htmlElem.addEventListener('click', function(e) {
+//     e.preventDefault();
+//     const href = this.getAttribute('href')
+//     // console.log(href);
+//     document.querySelector(href).scrollIntoView({
+//       behavior : 'smooth'
+//     })
+
+//   })
+// });
+////////// ДЕЛЕГИРОВАНИЯ СОБЫТИЯ
+////\ 1. Добовляем слушателя на ОБЩЕГО родителя
+document.querySelector(".nav__links").addEventListener("click", function (e) {
+  e.preventDefault();
+  ///// 2. Определить таргет элемент( на кого кликнули)
+  console.log(e.target);
+  if (e.target.classList.contains("nav__link")) {
+    const href = e.target.getAttribute("href");
+    // console.log(href);
+    document.querySelector(href).scrollIntoView({
+      behavior: "smooth",
+    });
+  }
+});
+
+//////// event
+// const h1 = document.querySelector("h1");
+// const logH1 = () => {
+//   console.log("xyq")
+//   h1.removeEventListener("mouseenter",logH1) /// ивент только 1 раз сработает
+// };
+// h1.addEventListener("mouseenter",logH1 );
+
+// h1.onclick = () => console.log("xyq2");
