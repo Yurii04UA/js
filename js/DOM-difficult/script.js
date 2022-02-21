@@ -169,12 +169,37 @@ nav.addEventListener("mouseout", function (e) {
 });
 
 
-/// sticky navigation
-const section1Coords =section1.getBoundingClientRect()
-console.log(section1Coords);
-window.addEventListener('scroll', function(e){
-  console.log(this.window.scrollY);
+/// sticky navigation Intersection Observer API
+// const observerCallback = function(entries, observer){
+//   entries.forEach(entry => {
+//     console.log(entry);
+//   })
+// }
+// const observerOpsions = {
+//   root:null,
+//   threshold: [0,0.2]
+// }
+
+// const observer = new IntersectionObserver(observerCallback,observerOpsions);
+// observer.observe(section1)
+
+const getStickeNav = function(entries){
+  const entry = entries[0]
+  if(!entry.isIntersecting){
+    nav.classList.add('sticky')
+  } else{
+    nav.classList.remove('sticky')
+  }
+}
+
+const   observer = new IntersectionObserver(getStickeNav,{
+  root: null,
+  threshold:0,
+  rootMargin: "-150px"
 })
+
+
+observer.observe(header)
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
