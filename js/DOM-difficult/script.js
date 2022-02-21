@@ -76,7 +76,7 @@ const btnScrollTo = document.querySelector(".btn--scroll-to");
 const section1 = document.querySelector("#section--1");
 
 btnScrollTo.addEventListener("click", (e) => {
-  const section1Coords = section1.getBoundingClientRect();
+  // const section1Coords = section1.getBoundingClientRect();
   // console.log(section1Coords);
   // console.log(e.target.getBoundingClientRect());
   // console.log('Scroll', window.pageXOffset, window.pageYOffset);
@@ -118,6 +118,25 @@ document.querySelector(".nav__links").addEventListener("click", function (e) {
   }
 });
 
+const tabs = document.querySelectorAll(".operations__tab");
+const tabContainer = document.querySelector(".operations__tab-container");
+const tabContent = document.querySelector(".operations__content");
+
+tabContainer.addEventListener('click', function(e){
+  const clickedBtn = e.target.closest('.operations__tab ');
+  /// Guard clause - если клик будет не на кнорке то вернется налл и ивент остановится
+  if(!clickedBtn) return  
+  
+  tabs.forEach(tab => tab.classList.remove('operations__tab--active'))
+  clickedBtn.classList.add('operations__tab--active')
+})
+
+
+
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+
 //////// event
 // const h1 = document.querySelector("h1");
 // const logH1 = () => {
@@ -127,3 +146,29 @@ document.querySelector(".nav__links").addEventListener("click", function (e) {
 // h1.addEventListener("mouseenter",logH1 );
 
 // h1.onclick = () => console.log("xyq2");
+
+/////////////////
+//// ПЕРЕМЕЩЕНИЕ ПО ДОМ
+
+// const h1 = document.querySelector('h1')
+// console.log(h1);
+
+//// Перемещение вниз(потомок Child)
+// console.log(h1.querySelectorAll('.highlight'));  /// Даже если у других элементов будет такой клас их не выбирет, потому что ищем в Н1
+// console.log(h1.children);
+// console.log(h1.firstElementChild);
+// h1.firstElementChild.style.color = 'yellow'
+// console.log(h1.lastElementChild);
+
+//// Перемещение вверх(родитель)parent
+
+// console.log(h1.parentNode);
+// console.log(h1.parentElement);
+
+// const h2 = document.querySelector('h2')
+// h2.closest('.section').style.backgroundColor = 'red'
+
+///// Перемещение на одном уровне( в сторону)
+
+// console.log(h2.previousElementSibling);
+// console.log(h2.nextElementSibling);
