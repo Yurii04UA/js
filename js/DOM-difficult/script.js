@@ -120,19 +120,61 @@ document.querySelector(".nav__links").addEventListener("click", function (e) {
 
 const tabs = document.querySelectorAll(".operations__tab");
 const tabContainer = document.querySelector(".operations__tab-container");
-const tabContent = document.querySelector(".operations__content");
+const tabContents = document.querySelectorAll(".operations__content");
 
-tabContainer.addEventListener('click', function(e){
-  const clickedBtn = e.target.closest('.operations__tab ');
+/// Active tabs by click
+tabContainer.addEventListener("click", function (e) {
+  const clickedBtn = e.target.closest(".operations__tab ");
   /// Guard clause - если клик будет не на кнорке то вернется налл и ивент остановится
-  if(!clickedBtn) return  
-  
-  tabs.forEach(tab => tab.classList.remove('operations__tab--active'))
-  clickedBtn.classList.add('operations__tab--active')
+  if (!clickedBtn) return;
+  /// Active tabs
+  tabs.forEach((tab) => tab.classList.remove("operations__tab--active"));
+  clickedBtn.classList.add("operations__tab--active");
+
+  //// Active content
+  tabContents.forEach((cont) =>
+    cont.classList.remove("operations__content--active")
+  );
+  document
+    .querySelector(`.operations__content--${clickedBtn.dataset.tab}`)
+    .classList.add("operations__content--active");
+});
+
+//// Animations show links for navigation
+
+const navLinksHover = function (e, opacity) {
+  if (e.target.classList.contains("nav__link")) {
+    const linkOver = e.target;
+    const siblingLinks = linkOver
+      .closest(".nav__links")
+      .querySelectorAll(".nav__link");
+    const logo = linkOver.closest(".nav").querySelector("img");
+    const text = linkOver.closest(".nav").querySelector(".nav__text");
+
+    siblingLinks.forEach((el) => {
+      if (el !== linkOver) el.style.opacity = opacity;
+    });
+    logo.style.opacity = opacity;
+    text.style.opacity = opacity;
+  }
+};
+
+const nav = document.querySelector(".nav");
+nav.addEventListener("mouseover", function (e) {
+  navLinksHover(e, 0.4);
+});
+
+nav.addEventListener("mouseout", function (e) {
+  navLinksHover(e, 1);
+});
+
+
+/// sticky navigation
+const section1Coords =section1.getBoundingClientRect()
+console.log(section1Coords);
+window.addEventListener('scroll', function(e){
+  console.log(this.window.scrollY);
 })
-
-
-
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
