@@ -168,7 +168,6 @@ nav.addEventListener("mouseout", function (e) {
   navLinksHover(e, 1);
 });
 
-
 /// sticky navigation Intersection Observer API
 // const observerCallback = function(entries, observer){
 //   entries.forEach(entry => {
@@ -183,23 +182,42 @@ nav.addEventListener("mouseout", function (e) {
 // const observer = new IntersectionObserver(observerCallback,observerOpsions);
 // observer.observe(section1)
 
-const getStickeNav = function(entries){
-  const entry = entries[0]
-  if(!entry.isIntersecting){
-    nav.classList.add('sticky')
-  } else{
-    nav.classList.remove('sticky')
+const getStickeNav = function (entries) {
+  const entry = entries[0];
+  if (!entry.isIntersecting) {
+    nav.classList.add("sticky");
+  } else {
+    nav.classList.remove("sticky");
   }
-}
+};
 
-const   observer = new IntersectionObserver(getStickeNav,{
+const headerObserver = new IntersectionObserver(getStickeNav, {
   root: null,
-  threshold:0,
-  rootMargin: "-150px"
-})
+  threshold: 0,
+  rootMargin: "-150px",
+});
 
+headerObserver.observe(header);
 
-observer.observe(header)
+///// Появления секций сайта
+
+const allSections = document.querySelectorAll(".section");
+
+const apperSection = function (entries, observer) {
+  const entry = entries[0];
+  if(entry.isIntersecting)entry.target.classList.remove('section--hidden');
+  observer.unobserve(entry.target)
+};
+const sectionObserver = new IntersectionObserver(apperSection, {
+  root: null,
+  threshold: 0.1,
+});
+
+allSections.forEach((section) => {
+  sectionObserver.observe(section)
+  section.classList.add("section--hidden");
+});
+//section--hidden
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
