@@ -213,10 +213,10 @@ const sectionObserver = new IntersectionObserver(apperSection, {
   threshold: 0.1,
 });
 
-allSections.forEach((section) => {
-  sectionObserver.observe(section)
-  section.classList.add("section--hidden");
-});
+// allSections.forEach((section) => {
+//   sectionObserver.observe(section)
+//   section.classList.add("section--hidden");
+// });
 //section--hidden
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
@@ -257,3 +257,50 @@ allSections.forEach((section) => {
 
 // console.log(h2.previousElementSibling);
 // console.log(h2.nextElementSibling);
+
+
+/////////////// Slider
+
+
+
+const slides = document.querySelectorAll('.slide');
+const btnNext = document.querySelector('.slider__btn--right');
+const btnPrev = document.querySelector('.slider__btn--left');
+
+
+let currentSlide = 0
+let currentSlidePrev = slides.length -1
+console.log(currentSlidePrev);
+
+const moveSlide = function (slide){
+  slides.forEach((s,index) => {
+    s.style.transform = `translateX(${(index - slide)*100}%)`
+    // 1 - -100%, 2- 0%,3 - 100%,4 - 200%
+  })
+}
+
+
+// slides.forEach((slide,index) => {
+//   slide.style.transform = `translateX(${index*100}%)`
+// })
+moveSlide(0)
+
+btnNext.addEventListener('click',()=> {
+  if(currentSlide < currentSlidePrev){
+    currentSlide++
+  }else{
+    currentSlide = 0
+  }
+  moveSlide(currentSlide)
+})
+btnPrev.addEventListener('click',()=> {
+  if(currentSlide === 0){
+    currentSlide= currentSlidePrev
+  }else{
+    currentSlide--
+  }
+  moveSlide(currentSlide)
+})
+
+
+    
