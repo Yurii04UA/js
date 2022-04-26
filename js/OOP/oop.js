@@ -1,3 +1,5 @@
+/// function counstrukror
+
 const Person = function(firstName,birthYear){
    // Instance properties - свойство эксземпляра
    this.firstName= firstName;
@@ -59,3 +61,31 @@ const bmw = new Car('bmw',150)
 
 ///// Classes ES6
 
+
+// class expression
+// const PersonClass = class{
+
+// }
+
+// class declaration
+class PersonClass{
+   constructor(firstName,birthYear){
+      this.firstName = firstName;
+      this.birthYear = birthYear;
+   }
+   // методы добавляются в protopype
+   printAge(){
+      console.log(2022 - this.birthYear);
+   }
+   greet(){
+      console.log(`hello my name is ${this.firstName}`);
+   }
+}
+
+const jack = new PersonClass('jacl',2000);
+// console.log(jack);
+// jack.printAge()
+// jack.greet()
+//1. Классы не "поднимаются" при помощи hoisting
+//2. Классы являются "first class citizen"
+//3. Все что в нутри класса запускается в стрикт моде
