@@ -80,7 +80,12 @@ class PersonClass{
    greet(){
       console.log(`hello my name is ${this.firstName}`);
    }
+
+   static highFive(){
+      console.log('High five!');
+   }
 }
+
 
 const jack = new PersonClass('jacl',2000);
 // console.log(jack);
@@ -89,3 +94,19 @@ const jack = new PersonClass('jacl',2000);
 //1. Классы не "поднимаются" при помощи hoisting
 //2. Классы являются "first class citizen"
 //3. Все что в нутри класса запускается в стрикт моде
+
+
+////////////////////////////////////////////////////
+/// Object.create()
+const PersonProto ={
+   printAgeProto() {
+      console.log(2022-this.birthYear);
+   }
+}
+
+const jkack = Object.create(PersonProto)
+
+jkack.name = 'jkack',
+jkack.birthYear = 1999
+console.log(jkack);
+jkack.printAgeProto()
