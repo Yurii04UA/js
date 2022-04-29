@@ -372,3 +372,34 @@ account2.requestLoan(5000)
 
 console.log(account2);
 console.log(account2.getTransaction());
+
+
+//////////// 
+ // task
+
+ class ElectricCarClass extends CarClass{
+    constructor(name,speed,battery){
+       super(name,speed);
+       this.battery = battery;
+    }
+    accelerate(){
+       this.speed+=10
+       this.battery-=1
+       console.log(`${this.name} is accelating. Speed ${this.speed}. Batterrt ${this.battery}`);
+       return this
+    }
+    breake(){
+      this.speed-=10
+      this.battery-=1
+      console.log(`${this.name} slow down. Speed ${this.speed}. Batterrt ${this.battery}`);
+      return this
+    }
+    chargeBattery(chargeLevel){
+       this.battery = chargeLevel;
+       return this
+    }
+ }
+ const i3 = new ElectricCarClass('i3',120,33)
+ console.log(i3);
+i3.accelerate().accelerate().accelerate().breake().breake()
+
