@@ -96,13 +96,13 @@ const bmw = new Car('bmw',150)
 
 ////////////////////////////////////////////////////
 /// Object.create()
-const PersonProto ={
-   printAgeProto() {
-      console.log(2022-this.birthYear);
-   }
-}
+// const PersonProto ={
+//    printAgeProto() {
+//       console.log(2022-this.birthYear);
+//    }
+// }
 
-const jkack = Object.create(PersonProto)
+// const jkack = Object.create(PersonProto)
 
 // jkack.name = 'jkack',
 // jkack.birthYear = 1999
@@ -228,7 +228,7 @@ class PersonClass{
       return 2022- this.birthYear
    }
    set fullName(name){
-      console.log(name);
+      
       if(name.includes(' ')){
          this._fullName = name;
       }else{
@@ -248,8 +248,127 @@ class Workerdd extends PersonClass{
       super(fullName,birthYear);
       this.position = position;
    }
+   includesWorkerdd(){
+      console.log(`hello my name ${this.fullName}. I am ${this.position}`);
+   }
+   greet(){
+      console.log(`Hello i am ${this.fullName}. I am work at ofice`);
+   }
 }
 
 const jan = new Workerdd('Jan Podolac',2000,'chef');
-jan.fullName
-console.log(jan);
+
+
+
+/////////////////////////////////////////////////////////////
+// Наследования классов Object.create()
+// const PersonProto ={
+//    printAgeProto() {
+//       console.log(2022-this.birthYear);
+//    },
+//    initPerson(firstName,birthYear){
+//       this.firstName = firstName;
+//       this.birthYear = birthYear;
+//    }
+// }
+
+// const StudentProto = Object.create(PersonProto)
+// const jkack = Object.create(StudentProto)
+// jkack.initPerson('k',1999)
+// console.log(jkack);
+
+
+//// //////////////////////////
+// class Account {
+//    constructor(owner,currenty,pin){
+//       this.owner = owner;
+//       this.currenty = currenty;
+//       this.pin = pin;
+//       this.transaction = [];
+//       this.local = navigator.language
+
+//       // console.log(`Hello ${this.owner}`); 
+//    }
+//    deposit(value){
+//       this.transaction.push(value)
+//    }
+//    withdraw(value){
+//       this.deposit(-value)
+//    }
+
+//    approvedLoan(value){
+//       return true
+//    }
+//    requestLoan(value){
+//       if(this.approvedLoan(value)){
+//          this.deposit(value)
+//       }
+//    }
+// }
+
+// const account1= new Account('jack','usd',1111)
+// // console.log(account1);
+// // account1.deposit(100)
+// // account1.deposit(300)
+// // console.log(account1);
+// // account1.withdraw(500)
+// account1.requestLoan(5000)
+
+// console.log(account1);
+
+///////////////////////////////////////////////////////////
+// Инкапсуляция 
+
+// public fields
+// private fields
+// public methods
+// private methods
+
+class Account {
+   // public fields
+   local = navigator.language;
+   // private fields
+   #transaction = [];
+   #pin;
+   constructor(owner,currenty,pin){
+      this.owner = owner;
+      this.currenty = currenty;
+      this.#pin = pin;
+      
+
+      // console.log(`Hello ${this.owner}`); 
+   }
+   deposit(value){
+      this.#transaction.push(value)
+   }
+   withdraw(value){
+      this.deposit(-value)
+   }
+
+   
+   requestLoan(value){
+      if(this.#approvedLoan(value)){
+         this.deposit(value)
+      }
+   }
+   // public methods
+   getTransaction(){
+      return this.#transaction
+   }
+   // private methods
+   #approvedLoan(value){
+      return true
+   }
+
+}
+
+const account2= new Account('jack','usd',1111)
+// console.log(account1);
+// account1.deposit(100)
+// account1.deposit(300)
+// console.log(account1);
+// account1.withdraw(500)
+account2.requestLoan(5000)
+
+console.log(account2);
+console.log(account2.getTransaction());
