@@ -4,8 +4,6 @@ const Person = function(firstName,birthYear){
    // Instance properties - свойство эксземпляра
    this.firstName= firstName;
    this.birthYear = birthYear;
-
-
 }
 
 const yurii = new Person('yurii',1992)
@@ -68,26 +66,26 @@ const bmw = new Car('bmw',150)
 // }
 
 // class declaration
-class PersonClass{
-   constructor(firstName,birthYear){
-      this.firstName = firstName;
-      this.birthYear = birthYear;
-   }
-   // методы добавляются в protopype
-   printAge(){
-      console.log(2022 - this.birthYear);
-   }
-   greet(){
-      console.log(`hello my name is ${this.firstName}`);
-   }
+// class PersonClass{
+//    constructor(firstName,birthYear){
+//       this.firstName = firstName;
+//       this.birthYear = birthYear;
+//    }
+//    // методы добавляются в protopype
+//    printAge(){
+//       console.log(2022 - this.birthYear);
+//    }
+//    greet(){
+//       console.log(`hello my name is ${this.firstName}`);
+//    }
 
-   static highFive(){
-      console.log('High five!');
-   }
-}
+//    static highFive(){
+//       console.log('High five!');
+//    }
+// }
 
 
-const jack = new PersonClass('jacl',2000);
+// const jack = new PersonClass('jacl',2000);
 // console.log(jack);
 // jack.printAge()
 // jack.greet()
@@ -106,7 +104,152 @@ const PersonProto ={
 
 const jkack = Object.create(PersonProto)
 
-jkack.name = 'jkack',
-jkack.birthYear = 1999
-console.log(jkack);
-jkack.printAgeProto()
+// jkack.name = 'jkack',
+// jkack.birthYear = 1999
+// console.log(jkack);
+// jkack.printAgeProto()
+
+class CarClass {
+   constructor(name,speed){
+      this.name = name;
+      this.speed = speed
+   }
+   accelerate(){
+      this.speed = this.speed + 5;
+      console.log(`${this.name} is accelerating ${this.speed}`);
+   }
+   breake(){
+      this.speed = this.speed - 5;
+      console.log(`${this.name} slow down ${this.speed}`);
+   }
+   get speedMph(){
+      return `${this.speed/ 1.6} Mph `;
+   }
+   
+   set speedMph(speed){
+      this.speed = speed *1.6
+   }
+}
+
+const audi = new CarClass('audi',100)
+// console.log(audi);
+// audi.accelerate()
+// audi.breake()
+// console.log(audi.speedMph);
+
+///////////////////////////////////////////////////////////////////////////
+// Наследование Функция конструктор 
+const Persons = function(firstName,birthYear){
+   // Instance properties - свойство эксземпляра
+   this.firstName= firstName;
+   this.birthYear = birthYear;
+}
+Persons.prototype.printAge = function(){
+   console.log(new Date().getFullYear()-this.birthYear);
+}
+
+const Student = function (firstName,birthYear,dept){
+   Persons.call(this, firstName,birthYear)
+   this.dept = dept;
+
+}
+Student.prototype = Object.create(Persons.prototype)  /// связываем два прототипа 
+Student.prototype.introduce = function(){
+   console.log(`Hello my name is ${this.firstName}. I study ${this.dept} department.`);
+}
+const loh = new Student('Loh',1999,'Programming')
+// console.log(loh);
+// loh.introduce()
+// loh.printAge()
+
+
+
+const ElectricCar = function(name,speed, battery){
+   Car.call(this,name,speed);
+   this.battery = battery;
+};
+ElectricCar.prototype = Object.create(Car.prototype);
+ElectricCar.prototype.constructor = ElectricCar; // привязывает прототип
+ElectricCar.prototype.chargeBattery = function(chargeLevel){
+   this.battery = chargeLevel
+}
+ElectricCar.prototype.accelerate = function(){
+   this.speed = this.speed + 10;
+   this.battery = this.battery - 1;
+   console.log(`${this.name} is accelerating. Speed = ${this.speed} km/h. Battery status ${this.battery}% `);
+}
+ElectricCar.prototype.breake = function(){
+   this.speed = this.speed - 10;
+   this.battery = this.battery - 0.5;
+   console.log(`${this.name} slow down. Speed = ${this.speed} km/h. Battery status ${this.battery}% `);
+}
+const tesla = new ElectricCar('tesla',200,50);
+tesla.chargeBattery(80)
+
+// tesla.accelerate()
+// tesla.breake()
+// tesla.accelerate()
+
+
+
+// const ElectricCarCoupe = function(name,speed,battery){
+//    ElectricCar.call(this,name,speed,battery)
+// }
+// ElectricCarCoupe.prototype = Object.create(ElectricCar.prototype)
+
+// const caa = new ElectricCarCoupe('a',1,2)
+// caa.hello()
+// console.log(caa);
+
+// const tesla = new Car('Tesla',200);
+// const tesla2 = new ElectricCar('Tesla2',200,80);
+// tesla2.hello()
+// console.log(tesla);
+// console.log(tesla2);
+
+/////////////////////////////////////////////////////////////
+// Наследование классов. Class ES6
+
+
+class PersonClass{
+   constructor(fullName,birthYear){
+      this.fullName = fullName;
+      this.birthYear = birthYear;
+   }
+   // методы добавляются в protopype
+   printAge(){
+      console.log(2022 - this.birthYear);
+   }
+   greet(){
+      console.log(`hello my name is ${this.fullName}`);
+   }
+
+   get age(){
+      return 2022- this.birthYear
+   }
+   set fullName(name){
+      console.log(name);
+      if(name.includes(' ')){
+         this._fullName = name;
+      }else{
+         alert('ti xuy')
+      }
+   }
+   get fullName(){
+      return this._fullName
+   }
+   static highFive(){
+      console.log('High five!');
+   }
+}
+
+class Workerdd extends PersonClass{
+   constructor(fullName,birthYear,position){
+      super(fullName,birthYear);
+      this.position = position;
+   }
+}
+
+const jan = new Workerdd('Jan Podolac',2000,'chef');
+jan.fullName
+console.log(jan);
