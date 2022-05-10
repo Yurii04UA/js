@@ -10,6 +10,7 @@ body,h1,h2,h3,h4,p,ul[class],ol[class],li{
     max-width: 1225px;
     width: 100%;
     margin: 0 auto;
+    text-align: center;
 }
 
 .currenty{

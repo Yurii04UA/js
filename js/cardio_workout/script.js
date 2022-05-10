@@ -317,6 +317,8 @@ class App {
     localStorage.removeItem('workouts');
     location.reload();
   }
+
+  
 }
 
 const app = new App();
