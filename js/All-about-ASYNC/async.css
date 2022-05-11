@@ -25,7 +25,7 @@
 }
 
 .neighbour::before {
-  content: 'Соседняя Страна';
+  content: 'border countries';
   width: 100%;
   position: absolute;
   top: -5rem;
