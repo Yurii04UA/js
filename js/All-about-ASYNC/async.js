@@ -60,7 +60,7 @@ const displayCountry = (data, clasName = "") => {
    </article>
    `;
   cardContainer.insertAdjacentHTML("beforeend", html);
-  cardContainer.style.opacity = 1;
+  // cardContainer.style.opacity = 1;
 };
 
 const getCountryAndBorderCountries = (country) => {
@@ -109,18 +109,45 @@ const getCountryAndBorderCountries = (country) => {
 
   const responseFetch = fetch(`https://restcountries.com/v3.1/name/ukraine`)
 
+  const createMassage = (e) =>{
+    cardContainer.insertAdjacentText("beforeend", e);
+    // cardContainer.style.opacity = 1;
+  } 
+
+  const getData = (url,errorMassage = 'ops. Something happened') => {
+    return fetch(url)
+    .then(response => {
+      if(!response.ok){
+        throw new Error(` Error ${response.status}.  ${errorMassage}`)
+      }
+      return response.json()})
+  }
+
   const getCountryData = (country) =>  {
-    fetch(`https://restcountries.com/v3.1/name/${country}`)
-    .then(response => response.json())
+    getData(`https://restcountries.com/v3.1/name/${country}`,'Country not found')
+    
     .then(([data]) => {
       displayCountry(data)
 
       const first = data.borders[0]
-      return fetch(`https://restcountries.com/v3.1/alpha/${first}`)
+      // const first = 'sgyghghd'
+      if(!first) return
+      return getData(`https://restcountries.com/v3.1/alpha/${first}`)
      
     })
-    .then(response => response.json())
     .then(([data]) => displayCountry(data, 'neighbour'))
+    .catch(e => {
+      createMassage(e.message)
+      console.log(`${e} 😤`)
+    })
+    .finally(()=>{
+      cardContainer.style.opacity = 1;
+      cardContainer.style.opacity = 1;
+    })
   }
+  
+
+btn.addEventListener('click', ()=> {
   getCountryData('peru')
+})
 
