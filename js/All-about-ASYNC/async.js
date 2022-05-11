@@ -128,11 +128,11 @@ const getCountryAndBorderCountries = (country) => {
     
     .then(([data]) => {
       displayCountry(data)
-
+      if(!data.borders) throw new Error('borders no')
       const first = data.borders[0]
       // const first = 'sgyghghd'
-      if(!first) return
-      return getData(`https://restcountries.com/v3.1/alpha/${first}`)
+      
+      return getData(`https://restcountries.com/v3.1/alpha/${first}`,'Country not found')
      
     })
     .then(([data]) => displayCountry(data, 'neighbour'))
