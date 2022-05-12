@@ -151,3 +151,51 @@ btn.addEventListener('click', ()=> {
   getCountryData('peru')
 })
 
+
+
+const displayCountryByGPS = (lat, lng) => {
+  fetch(`https://geocode.xyz/${lat},${lng}?geoit=json
+  `)
+  .then(response => {
+    if(!response.ok) throw new Error('there are no such coordinates!!!!!')
+    return response.json()})
+  .then(data => {
+    const {city, prov} = data
+    if(!city) throw new Error('there are no such coordinates City')
+    console.log(`You are in ${city}. ${data.country}`);
+   return (fetch(`https://restcountries.com/v3.1/alpha/${prov}`))
+  })
+  .then((data) => data.json())
+  .then(([data]) => getCountryData(data.name.common))
+  .catch(e => {
+    createMassage(e.message)
+    console.log(`${e} 😤`)
+  })
+  .finally(()=>{
+    cardContainer.style.opacity = 1;
+    cardContainer.style.opacity = 1;
+  })
+} 
+
+
+// displayCountryByGPS(35.756,139.256)
+// displayCountryByGPS(35.756,139.256)
+
+
+// displayCountryByGPS(12.756,14.256)
+
+///////////////////////////////// EVENT LOOP
+
+console.log('start test');
+setTimeout(()=> console.log(' Timer 0 sec'),0)
+
+Promise.resolve('Finished promise 1')
+.then(result => console.log(result))
+
+Promise.resolve('Finished promise 2')
+.then(result => {
+  for(let i =0; i < 500000000; i++) {}
+  console.log(result)
+})
+
+console.log('finis test');
