@@ -102,100 +102,113 @@ const getCountryAndBorderCountries = (country) => {
 // }, 1000);
 
 // const getCountryAndBorderCountries = (country) => {
-  // const request1 = new XMLHttpRequest();
-  // request1.open("GET", `https://restcountries.com/v3.1/name/${country}`);
+// const request1 = new XMLHttpRequest();
+// request1.open("GET", `https://restcountries.com/v3.1/name/${country}`);
 
-  // request1.send();
+// request1.send();
 
-  const responseFetch = fetch(`https://restcountries.com/v3.1/name/ukraine`)
+const responseFetch = fetch(`https://restcountries.com/v3.1/name/ukraine`);
 
-  const createMassage = (e) =>{
-    cardContainer.insertAdjacentText("beforeend", e);
-    // cardContainer.style.opacity = 1;
-  } 
+const createMassage = (e) => {
+  cardContainer.insertAdjacentText("beforeend", e);
+  // cardContainer.style.opacity = 1;
+};
 
-  const getData = (url,errorMassage = 'ops. Something happened') => {
-    return fetch(url)
-    .then(response => {
-      if(!response.ok){
-        throw new Error(` Error ${response.status}.  ${errorMassage}`)
-      }
-      return response.json()})
-  }
+const getData = (url, errorMassage = "ops. Something happened") => {
+  return fetch(url).then((response) => {
+    if (!response.ok) {
+      throw new Error(` Error ${response.status}.  ${errorMassage}`);
+    }
+    return response.json();
+  });
+};
 
-  const getCountryData = (country) =>  {
-    getData(`https://restcountries.com/v3.1/name/${country}`,'Country not found')
-    
+const getCountryData = (country) => {
+  getData(`https://restcountries.com/v3.1/name/${country}`, "Country not found")
     .then(([data]) => {
-      displayCountry(data)
-      if(!data.borders) throw new Error('borders no')
-      const first = data.borders[0]
+      displayCountry(data);
+      if (!data.borders) throw new Error("borders no");
+      const first = data.borders[0];
       // const first = 'sgyghghd'
-      
-      return getData(`https://restcountries.com/v3.1/alpha/${first}`,'Country not found')
-     
+
+      return getData(
+        `https://restcountries.com/v3.1/alpha/${first}`,
+        "Country not found"
+      );
     })
-    .then(([data]) => displayCountry(data, 'neighbour'))
-    .catch(e => {
-      createMassage(e.message)
-      console.log(`${e} 😤`)
+    .then(([data]) => displayCountry(data, "neighbour"))
+    .catch((e) => {
+      createMassage(e.message);
+      console.log(`${e} 😤`);
     })
-    .finally(()=>{
+    .finally(() => {
       cardContainer.style.opacity = 1;
       cardContainer.style.opacity = 1;
-    })
-  }
-  
+    });
+};
 
-btn.addEventListener('click', ()=> {
-  getCountryData('peru')
-})
-
-
+btn.addEventListener("click", () => {
+  getCountryData("peru");
+});
 
 const displayCountryByGPS = (lat, lng) => {
   fetch(`https://geocode.xyz/${lat},${lng}?geoit=json
   `)
-  .then(response => {
-    if(!response.ok) throw new Error('there are no such coordinates!!!!!')
-    return response.json()})
-  .then(data => {
-    const {city, prov} = data
-    if(!city) throw new Error('there are no such coordinates City')
-    console.log(`You are in ${city}. ${data.country}`);
-   return (fetch(`https://restcountries.com/v3.1/alpha/${prov}`))
-  })
-  .then((data) => data.json())
-  .then(([data]) => getCountryData(data.name.common))
-  .catch(e => {
-    createMassage(e.message)
-    console.log(`${e} 😤`)
-  })
-  .finally(()=>{
-    cardContainer.style.opacity = 1;
-    cardContainer.style.opacity = 1;
-  })
-} 
-
+    .then((response) => {
+      if (!response.ok) throw new Error("there are no such coordinates!!!!!");
+      return response.json();
+    })
+    .then((data) => {
+      const { city, prov } = data;
+      if (!city) throw new Error("there are no such coordinates City");
+      console.log(`You are in ${city}. ${data.country}`);
+      return fetch(`https://restcountries.com/v3.1/alpha/${prov}`);
+    })
+    .then((data) => data.json())
+    .then(([data]) => getCountryData(data.name.common))
+    .catch((e) => {
+      createMassage(e.message);
+      console.log(`${e} 😤`);
+    })
+    .finally(() => {
+      cardContainer.style.opacity = 1;
+      cardContainer.style.opacity = 1;
+    });
+};
 
 // displayCountryByGPS(35.756,139.256)
 // displayCountryByGPS(35.756,139.256)
-
 
 // displayCountryByGPS(12.756,14.256)
 
 ///////////////////////////////// EVENT LOOP
 
-console.log('start test');
-setTimeout(()=> console.log(' Timer 0 sec'),0)
+// console.log('start test');
+// setTimeout(()=> console.log(' Timer 0 sec'),0)
 
-Promise.resolve('Finished promise 1')
-.then(result => console.log(result))
+// Promise.resolve('Finished promise 1')
+// .then(result => console.log(result))
 
-Promise.resolve('Finished promise 2')
-.then(result => {
-  for(let i =0; i < 500000000; i++) {}
-  console.log(result)
-})
+// Promise.resolve('Finished promise 2')
+// .then(result => {
+//   for(let i =0; i < 900000000; i++) {}
+//   console.log(result)
+// })
 
-console.log('finis test');
+// console.log('finis test');
+
+const lotteryPromise = new Promise(function (resolve, reject) {
+  console.log("Lottery is started");
+  setTimeout(() => {
+    if (Math.random() >= 0.5) {
+      resolve("You are win");
+    } else {
+      reject(new Error("You are lose"));
+    }
+  }, 3000);
+});
+
+
+lotteryPromise
+  .then((result) => console.log(result))
+  .catch((err) => console.log(err));
