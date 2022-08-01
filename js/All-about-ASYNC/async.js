@@ -60,7 +60,7 @@ const displayCountry = (data, clasName = "") => {
    </article>
    `;
   cardContainer.insertAdjacentHTML("beforeend", html);
-  // cardContainer.style.opacity = 1;
+  cardContainer.style.opacity = 1;
 };
 
 const getCountryAndBorderCountries = (country) => {
@@ -197,18 +197,70 @@ const displayCountryByGPS = (lat, lng) => {
 
 // console.log('finis test');
 
-const lotteryPromise = new Promise(function (resolve, reject) {
-  console.log("Lottery is started");
-  setTimeout(() => {
-    if (Math.random() >= 0.5) {
-      resolve("You are win");
-    } else {
-      reject(new Error("You are lose"));
+// const lotteryPromise = new Promise(function (resolve, reject) {
+//   console.log("Lottery is started");
+//   setTimeout(() => {
+//     if (Math.random() >= 0.5) {
+//       resolve("You are win");
+//     } else {
+//       reject(new Error("You are lose"));
+//     }
+//   }, 3000);
+// });
+
+// lotteryPromise
+//   .then((result) => console.log(result))
+//   .catch((err) => console.log(err));
+
+//////////////////////////////////////////////////
+///// ASYNC AWAIT
+
+const getCountryData2 = async function (country) {
+  try {
+    const response = await fetch(
+      `https://restcountries.com/v3.1/name/${country}`
+    );
+    if (!response.ok) {
+      throw new Error(`'Countries not found'${response.status}`);
     }
-  }, 3000);
-});
+    const [responseData] = await response.json();
+    console.log(responseData);
+    displayCountry(responseData);
+    return `Ti huy`;
+    // fetch(`https://restcountries.com/v3.1/name/${country}`)
+    // .then(res => res.json())
+    // .then(([res]) => console.log(res))
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
 
+// getCountryData2('ukraine');
+// .then(e => console.log(e))
+// .catch(err => console.log(`${err.message} ti pica`));
+// getCountryData2('ukrin')
 
-lotteryPromise
-  .then((result) => console.log(result))
-  .catch((err) => console.log(err));
+(async function () {
+  try{
+    const reultPromise = await getCountryData2("ukraine");
+    console.log(reultPromise);
+  }catch(e){
+    console.log(`${err.message} ti pica`)
+  }
+  
+})();
+
+console.log(this);
+
+//////////////////////////////////////////////////
+///// TRY CATCH
+
+// try{
+//   const a = 1
+//   let b =1
+//   a =2
+
+// }catch(error){
+//   alert(error.message)
+// }
