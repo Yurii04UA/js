@@ -1,3 +1,5 @@
+// return cc.slice(0, -4).replace(/./g, '#') + cc.slice(-4); // replaceAll, change all letters to #
+
 // //в массивах лучше хранть данные одного вида,одного типа,тобишь однообразные даннные(но можно и разные)
 // let colors = ["red","orange","blue","yellow"]
 

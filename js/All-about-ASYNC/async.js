@@ -150,7 +150,7 @@ const getCountryData = (country) => {
 btn.addEventListener("click", () => {
   getCountryData("peru");
 });
-
+//kk
 const displayCountryByGPS = (lat, lng) => {
   fetch(`https://geocode.xyz/${lat},${lng}?geoit=json
   `)
